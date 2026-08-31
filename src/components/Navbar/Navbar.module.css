@@ -29,11 +29,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
 .logoSpacer {
   width: clamp(200px, 22vw, 300px);
   flex-shrink: 0;
+  pointer-events: none;
 }
 
 /* ── Navigation Links ── */
