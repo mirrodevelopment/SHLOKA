@@ -354,36 +354,63 @@ export function ContactPage() {
 }
 
 export function NewArrivalsPage() {
+  const [filter, setFilter] = useState('ALL');
+
   const newSarees = [
     {
       id: 'saree-1',
       title: 'THE CRIMSON PURE ZARI KANCHI',
+      category: 'KANCHIPURAM',
       desc: 'Heritage crimson silk saree featuring certified 24k gold pure zari Korvai borders.',
       price: '₹84,500',
+      rawPrice: 84500,
       image: saree1Img,
     },
     {
       id: 'saree-2',
       title: 'THE SAGE FLOWERING MUSHROO',
+      category: 'SILK',
       desc: 'Handwoven Mushroo silk with gold and silver zari floral buttis across the body.',
       price: '₹62,000',
+      rawPrice: 62000,
       image: saree2Img,
     },
     {
       id: 'saree-3',
       title: 'THE MAROON STRUCTURAL SHENGOTTAI',
+      category: 'SILK',
       desc: 'Shengottai checks woven with a light-weight silk-cotton blend for summer comfort.',
       price: '₹34,500',
+      rawPrice: 34500,
       image: saree3Img,
     },
     {
       id: 'saree-4',
       title: 'THE CLOUD BLUE MEGH ORGANZA',
+      category: 'ORGANZA',
       desc: 'Translucent cloud-blue organza with fine hand-spun zari borders and floral margins.',
       price: '₹48,000',
+      rawPrice: 48000,
       image: saree4Img,
     }
   ];
+
+  // Filter items
+  const filteredSarees = filter === 'ALL' ? newSarees : newSarees.filter(s => s.category === filter);
+
+  const handleAddToBag = (saree) => {
+    const cartItem = {
+      id: saree.id,
+      name: saree.title,
+      price: saree.rawPrice,
+      image: saree.image,
+      quantity: 1
+    };
+    import('../../utils/cart').then(({ addToCart }) => {
+      addToCart(cartItem);
+      window.dispatchEvent(new Event('shloka_cart_updated'));
+    });
+  };
 
   return (
     <div className={styles.pageContainer}>
@@ -394,18 +421,39 @@ export function NewArrivalsPage() {
         <p className={styles.subtitle}>Explore the newest additions to the Shloka heritage loom.</p>
       </header>
 
+      {/* Interactive Category Filter Row */}
+      <div className={styles.filterRow}>
+        {['ALL', 'SILK', 'KANCHIPURAM', 'ORGANZA'].map((cat) => (
+          <button
+            key={cat}
+            type="button"
+            className={`${styles.filterChip} ${filter === cat ? styles.filterChipActive : ''}`}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.newArrivalsGrid}>
-        {newSarees.map((saree) => (
+        {filteredSarees.map((saree) => (
           <div key={saree.id} className={styles.arrivalCard}>
             <div className={styles.imageFrame}>
               <img src={saree.image} alt={saree.title} className={styles.arrivalImg} />
             </div>
             <div className={styles.arrivalInfo}>
+              <span className={styles.arrivalCategory}>{saree.category}</span>
               <h3 className={styles.arrivalTitle}>{saree.title}</h3>
               <p className={styles.arrivalDesc}>{saree.desc}</p>
               <div className={styles.arrivalFooter}>
                 <span className={styles.arrivalPrice}>{saree.price}</span>
-                <span className={styles.arrivalAction}>View Piece →</span>
+                <button
+                  type="button"
+                  className={styles.addBtn}
+                  onClick={() => handleAddToBag(saree)}
+                >
+                  ADD TO BAG
+                </button>
               </div>
             </div>
           </div>

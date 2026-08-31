@@ -785,3 +785,62 @@
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
+
+/* ── FILTERS ── */
+.filterRow {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.filterChip {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #5C4A38;
+  background: transparent;
+  border: 1px solid rgba(184, 137, 62, 0.2);
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filterChip:hover,
+.filterChipActive {
+  background: #8B2635;
+  color: #FFFDF9;
+  border-color: #8B2635;
+}
+
+.arrivalCategory {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8C7862;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.addBtn {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #FFFDF9;
+  background: #8B2635;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.addBtn:hover {
+  background: #A98455;
+}
