@@ -844,3 +844,157 @@
 .addBtn:hover {
   background: #A98455;
 }
+
+/* ── NEW COLLECTIONS BANNERS ── */
+.arrivalsBannersList {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arrivalBannerCard {
+  display: flex;
+  background: #FFFDF9;
+  border: 1px solid rgba(184, 137, 62, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.arrivalBannerCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(41, 35, 31, 0.06);
+}
+
+.arrivalBannerCard:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.bannerImageFrame {
+  flex: 0 0 45%;
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: #F7F3EE;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrivalBannerCard:hover .bannerImg {
+  transform: scale(1.04);
+}
+
+.bannerBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #FFFDF9;
+  background: #8B2635;
+  padding: 6px 12px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.bannerContentCol {
+  flex: 1;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerChapter {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  font-size: 16px;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.bannerTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #29231F;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+}
+
+.bannerSeason {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #8C7862;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.bannerSeparator {
+  width: 40px;
+  height: 1px;
+  background: rgba(184, 137, 62, 0.2);
+  margin-bottom: 20px;
+}
+
+.bannerDesc {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 15px;
+  color: #5C4A38;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.bannerAccentBlock {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 11px;
+}
+
+.accentLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #8C7862;
+  text-transform: uppercase;
+}
+
+.accentText {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  color: #29231F;
+  font-size: 13px;
+}
+
+.bannerExploreBtn {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #8B2635;
+  text-transform: uppercase;
+  align-self: flex-start;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.bannerExploreBtn:hover {
+  color: #A98455;
+  transform: translateX(4px);
+}
