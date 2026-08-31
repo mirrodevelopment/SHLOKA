@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BloomingLotusIcon from '../BloomingLotusIcon/BloomingLotusIcon';
 import styles from './DesktopCustomPages.module.css';
 
@@ -38,6 +38,15 @@ export function CollectionsPage() {
   const [isColAccordionOpen, setIsColAccordionOpen] = useState(true);
   const [sortBy, setSortBy] = useState('Featured');
   const [wishlistTick, setWishlistTick] = useState(0);
+
+  const categoryScrollRef = useRef(null);
+
+  const handleScrollRight = () => {
+    if (categoryScrollRef.current) {
+      const container = categoryScrollRef.current;
+      container.scrollBy({ left: 240, behavior: 'smooth' });
+    }
+  };
 
   // Sync wishlist updates
   useEffect(() => {
@@ -242,190 +251,196 @@ export function CollectionsPage() {
   });
 
   return (
-    <div className={styles.shopLayoutContainer}>
-      {/* Left Sidebar Filter Panel */}
-      <aside className={styles.sidebarFilter}>
-        <div className={styles.filterHeader}>
-          <span className={styles.filterTitle}>FILTERS</span>
-          <button type="button" className={styles.clearAllBtn} onClick={handleClearAll}>
-            CLEAR ALL
-          </button>
+    <div className={styles.shopPageWrapper}>
+      {/* Centered Category Showcase Section */}
+      <div className={styles.categoryShowcaseSection}>
+        <h2 className={styles.categorySectionTitle}>SHOP BY CATEGORY</h2>
+        <div className={styles.categoryDividerRow}>
+          <span className={styles.dividerLine} />
+          <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
+          <span className={styles.dividerLine} />
         </div>
-
-        {/* Collections Accordion */}
-        <div className={styles.accordionSection}>
+        <div className={styles.categoryCircleRowWrapper}>
+          <div ref={categoryScrollRef} className={styles.categoryCircleScroll}>
+            {categories.map((cat) => (
+              <button
+                key={cat.name}
+                type="button"
+                className={`${styles.categoryCircleCard} ${activeCategory === cat.name ? styles.categoryCircleActive : ''}`}
+                onClick={() => setActiveCategory(cat.name)}
+              >
+                <div className={styles.circleFrame}>
+                  <img src={cat.image} alt={cat.name} className={styles.circleImg} />
+                </div>
+                <span className={styles.circleLabel}>{cat.name}</span>
+              </button>
+            ))}
+          </div>
           <button
             type="button"
-            className={styles.accordionToggle}
-            onClick={() => setIsColAccordionOpen(!isColAccordionOpen)}
+            className={styles.circleArrowBtn}
+            onClick={handleScrollRight}
+            aria-label="Next categories"
           >
-            <span className={styles.accordionLabel}>
-              <BloomingLotusIcon width={14} height={10} stroke="#A98455" className={styles.miniLotus} />
-              COLLECTIONS
-            </span>
-            <span className={`${styles.accordionArrow} ${isColAccordionOpen ? styles.arrowUp : ''}`}>
-              ▼
-            </span>
+            <span>➔</span>
           </button>
-          {isColAccordionOpen && (
-            <div className={styles.checkboxScrollContainer}>
-              {filterCollectionsList.map((col) => (
-                <label key={col.name} className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={!!checkedCollections[col.name]}
-                    onChange={() => handleCollectionCheckboxChange(col.name)}
-                    className={styles.checkboxInput}
-                  />
-                  <span className={styles.checkboxText}>
-                    {col.name} <span className={styles.checkboxCount}>({col.count})</span>
-                  </span>
-                </label>
-              ))}
-            </div>
-          )}
         </div>
+      </div>
 
-        {/* Price Range Filter */}
-        <div className={styles.priceFilterSection}>
-          <div className={styles.priceToggle}>
-            <span className={styles.priceLabel}>PRICE RANGE</span>
-            <span>▼</span>
-          </div>
-          <div className={styles.sliderWrap}>
-            <input
-              type="range"
-              min="1000"
-              max="100000"
-              step="1000"
-              value={priceRange}
-              onChange={(e) => setPriceRange(Number(e.target.value))}
-              className={styles.priceSlider}
-            />
-            <div className={styles.sliderValues}>
-              <span>₹ 1,000</span>
-              <span>₹ {priceRange.toLocaleString()}{priceRange >= 100000 ? '+' : ''}</span>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      {/* Main Right Side Content */}
-      <div className={styles.shopMainContent}>
-
-        {/* Shop By Category Horizontal Row */}
-        <div className={styles.categoryShowcaseSection}>
-          <h2 className={styles.categorySectionTitle}>SHOP BY CATEGORY</h2>
-          <div className={styles.categoryDividerRow}>
-            <span className={styles.dividerLine} />
-            <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
-            <span className={styles.dividerLine} />
-          </div>
-          <div className={styles.categoryCircleRowWrapper}>
-            <div className={styles.categoryCircleScroll}>
-              {categories.map((cat) => (
-                <button
-                  key={cat.name}
-                  type="button"
-                  className={`${styles.categoryCircleCard} ${activeCategory === cat.name ? styles.categoryCircleActive : ''}`}
-                  onClick={() => setActiveCategory(cat.name)}
-                >
-                  <div className={styles.circleFrame}>
-                    <img src={cat.image} alt={cat.name} className={styles.circleImg} />
-                  </div>
-                  <span className={styles.circleLabel}>{cat.name}</span>
-                </button>
-              ))}
-            </div>
-            <button type="button" className={styles.circleArrowBtn} aria-label="Next categories">
-              <span>➔</span>
+      <div className={styles.shopLayoutContainer}>
+        {/* Left Sidebar Filter Panel */}
+        <aside className={styles.sidebarFilter}>
+          <div className={styles.filterHeader}>
+            <span className={styles.filterTitle}>FILTERS</span>
+            <button type="button" className={styles.clearAllBtn} onClick={handleClearAll}>
+              CLEAR ALL
             </button>
           </div>
-        </div>
 
-        {/* Category Header details */}
-        <div className={styles.categoryHeaderDetails}>
-          <div className={styles.headerTitlesCol}>
-            <h1 className={styles.spacedCategoryTitle}>
-              {activeCategory.split('').join(' ')}
-            </h1>
-            <p className={styles.categoryItalicSubtitle}>Timeless weaves, eternal beauty.</p>
-          </div>
-          <div className={styles.headerControlsCol}>
-            <span className={styles.itemsCountLabel}>{sortedProducts.length} ITEMS</span>
-            <div className={styles.sortByDropdownWrapper}>
-              <span className={styles.sortByLabel}>SORT BY</span>
-              <select
-                className={styles.sortBySelect}
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="Featured">Featured</option>
-                <option value="Price: Low to High">Price: Low to High</option>
-                <option value="Price: High to Low">Price: High to Low</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Tag Pills Row */}
-        <div className={styles.tagPillsRow}>
-          {tagsList.map((tag) => (
+          {/* Collections Accordion */}
+          <div className={styles.accordionSection}>
             <button
-              key={tag}
               type="button"
-              className={`${styles.tagPill} ${selectedTag === tag ? styles.tagPillActive : ''}`}
-              onClick={() => setSelectedTag(tag)}
+              className={styles.accordionToggle}
+              onClick={() => setIsColAccordionOpen(!isColAccordionOpen)}
             >
-              {tag}
+              <span className={styles.accordionLabel}>
+                <BloomingLotusIcon width={14} height={10} stroke="#A98455" className={styles.miniLotus} />
+                COLLECTIONS
+              </span>
+              <span className={`${styles.accordionArrow} ${isColAccordionOpen ? styles.arrowUp : ''}`}>
+                ▼
+              </span>
             </button>
-          ))}
-          <button type="button" className={styles.tagPlusBtn}>+</button>
-        </div>
+            {isColAccordionOpen && (
+              <div className={styles.checkboxScrollContainer}>
+                {filterCollectionsList.map((col) => (
+                  <label key={col.name} className={styles.checkboxLabel}>
+                    <input
+                      type="checkbox"
+                      checked={!!checkedCollections[col.name]}
+                      onChange={() => handleCollectionCheckboxChange(col.name)}
+                      className={styles.checkboxInput}
+                    />
+                    <span className={styles.checkboxText}>
+                      {col.name} <span className={styles.checkboxCount}>({col.count})</span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
 
-        {/* Products Grid */}
-        <div className={styles.productsDisplayGrid}>
-          {sortedProducts.map((saree) => {
-            const wished = isInWishlist(saree.id);
-            return (
-              <div key={saree.id} className={styles.productDisplayCard}>
-                <div className={styles.productImgContainer}>
-                  <img src={saree.image} alt={saree.name} className={styles.productGridImg} />
-                  <button
-                    type="button"
-                    className={`${styles.wishlistToggleBtn} ${wished ? styles.wishlistedActive : ''}`}
-                    onClick={() => {
-                      toggleWishlist(saree);
-                      setWishlistTick((t) => t + 1);
-                    }}
-                    aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
-                  >
-                    <svg width="20" height="18" viewBox="0 0 24 24" fill={wished ? "#8B2635" : "none"} stroke={wished ? "#8B2635" : "#FFF"} strokeWidth="1.6">
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                  </button>
-                </div>
-                <div className={styles.productGridInfo}>
-                  <h3 className={styles.productGridTitle}>{saree.name}</h3>
-                  <div className={styles.productGridFooter}>
-                    <span className={styles.productGridPrice}>₹ {saree.price.toLocaleString()}</span>
+          {/* Price Range Filter */}
+          <div className={styles.priceFilterSection}>
+            <div className={styles.priceToggle}>
+              <span className={styles.priceLabel}>PRICE RANGE</span>
+              <span>▼</span>
+            </div>
+            <div className={styles.sliderWrap}>
+              <input
+                type="range"
+                min="1000"
+                max="100000"
+                step="1000"
+                value={priceRange}
+                onChange={(e) => setPriceRange(Number(e.target.value))}
+                className={styles.priceSlider}
+              />
+              <div className={styles.sliderValues}>
+                <span>₹ 1,000</span>
+                <span>₹ {priceRange.toLocaleString()}{priceRange >= 100000 ? '+' : ''}</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        {/* Main Right Side Content */}
+        <div className={styles.shopMainContent}>
+          {/* Category Header details */}
+          <div className={styles.categoryHeaderDetails}>
+            <div className={styles.headerTitlesCol}>
+              <h1 className={styles.spacedCategoryTitle}>
+                {activeCategory.split('').join(' ')}
+              </h1>
+              <p className={styles.categoryItalicSubtitle}>Timeless weaves, eternal beauty.</p>
+            </div>
+            <div className={styles.headerControlsCol}>
+              <span className={styles.itemsCountLabel}>{sortedProducts.length} ITEMS</span>
+              <div className={styles.sortByDropdownWrapper}>
+                <span className={styles.sortByLabel}>SORT BY</span>
+                <select
+                  className={styles.sortBySelect}
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                >
+                  <option value="Featured">Featured</option>
+                  <option value="Price: Low to High">Price: Low to High</option>
+                  <option value="Price: High to Low">Price: High to Low</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Tag Pills Row */}
+          <div className={styles.tagPillsRow}>
+            {tagsList.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                className={`${styles.tagPill} ${selectedTag === tag ? styles.tagPillActive : ''}`}
+                onClick={() => setSelectedTag(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+            <button type="button" className={styles.tagPlusBtn}>+</button>
+          </div>
+
+          {/* Products Grid */}
+          <div className={styles.productsDisplayGrid}>
+            {sortedProducts.map((saree) => {
+              const wished = isInWishlist(saree.id);
+              return (
+                <div key={saree.id} className={styles.productDisplayCard}>
+                  <div className={styles.productImgContainer}>
+                    <img src={saree.image} alt={saree.name} className={styles.productGridImg} />
                     <button
                       type="button"
-                      className={styles.productBagBtn}
-                      onClick={() => handleAddToBag(saree)}
-                      aria-label="Add to cart"
+                      className={`${styles.wishlistToggleBtn} ${wished ? styles.wishlistedActive : ''}`}
+                      onClick={() => {
+                        toggleWishlist(saree);
+                        setWishlistTick((t) => t + 1);
+                      }}
+                      aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
                     >
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z" />
-                        <path d="M3 6h18" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
+                      <svg width="20" height="18" viewBox="0 0 24 24" fill={wished ? "#8B2635" : "none"} stroke={wished ? "#8B2635" : "#FFF"} strokeWidth="1.6">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                       </svg>
                     </button>
                   </div>
+                  <div className={styles.productGridInfo}>
+                    <h3 className={styles.productGridTitle}>{saree.name}</h3>
+                    <div className={styles.productGridFooter}>
+                      <span className={styles.productGridPrice}>₹ {saree.price.toLocaleString()}</span>
+                      <button
+                        type="button"
+                        className={styles.productBagBtn}
+                        onClick={() => handleAddToBag(saree)}
+                        aria-label="Add to cart"
+                      >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z" />
+                          <path d="M3 6h18" />
+                          <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
