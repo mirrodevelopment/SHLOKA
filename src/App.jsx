@@ -86,22 +86,22 @@ export default function App() {
 
       // Desktop page routing
       if (window.innerWidth > 768) {
-        if (h === '#collections' || h === '#collection') {
+        if (h.includes('collection')) {
           setActiveDesktopPage('collections');
           window.scrollTo(0, 0);
-        } else if (h === '#story') {
+        } else if (h.includes('story')) {
           setActiveDesktopPage('story');
           window.scrollTo(0, 0);
-        } else if (h === '#craft') {
+        } else if (h.includes('craft')) {
           setActiveDesktopPage('craft');
           window.scrollTo(0, 0);
-        } else if (h === '#journal') {
+        } else if (h.includes('journal')) {
           setActiveDesktopPage('journal');
           window.scrollTo(0, 0);
-        } else if (h === '#about') {
+        } else if (h.includes('about')) {
           setActiveDesktopPage('about');
           window.scrollTo(0, 0);
-        } else if (h === '#contact') {
+        } else if (h.includes('contact')) {
           setActiveDesktopPage('contact');
           window.scrollTo(0, 0);
         } else {

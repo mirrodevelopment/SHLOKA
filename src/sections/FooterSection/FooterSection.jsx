@@ -108,12 +108,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
           <nav className={styles.navBar} aria-label="Footer Navigation" data-ftr-text>
             <a
               href="#collections"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#collections');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               COLLECTIONS
@@ -121,12 +117,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             <span className={styles.dot}>•</span>
             <a
               href="#story"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#story');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               STORY
@@ -134,12 +126,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             <span className={styles.dot}>•</span>
             <a
               href="#craft"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#craft');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               CRAFT
@@ -147,12 +135,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             <span className={styles.dot}>•</span>
             <a
               href="#journal"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#journal');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               JOURNAL
@@ -160,12 +144,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             <span className={styles.dot}>•</span>
             <a
               href="#about"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#about');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               ABOUT
@@ -173,12 +153,8 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             <span className={styles.dot}>•</span>
             <a
               href="#contact"
-              onClick={(e) => {
-                if (window.innerWidth > 768) {
-                  e.preventDefault();
-                  history.pushState(null, null, '#contact');
-                  window.dispatchEvent(new HashChangeEvent('hashchange'));
-                }
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
               CONTACT

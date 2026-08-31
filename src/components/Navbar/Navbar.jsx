@@ -93,11 +93,9 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
                   href={link.href}
                   className={styles.link}
                   id={`nav-${link.label.toLowerCase()}`}
-                  onClick={(e) => {
+                  onClick={() => {
                     if (window.innerWidth > 768) {
-                      e.preventDefault();
-                      history.pushState(null, null, link.href);
-                      window.dispatchEvent(new HashChangeEvent('hashchange'));
+                      window.scrollTo(0, 0);
                     }
                   }}
                 >
