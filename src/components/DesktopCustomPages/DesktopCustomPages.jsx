@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BloomingLotusIcon from '../BloomingLotusIcon/BloomingLotusIcon';
 import styles from './DesktopCustomPages.module.css';
 
@@ -11,61 +11,453 @@ import storyHero from '../../assets/story-hero.jpg';
 import padmaBlouse from '../../assets/padma-blouse.jpg';
 import padmaPotli from '../../assets/padma-potli.jpg';
 
+import sec51Img from '../../assets/Sec-5-1.png';
+import sec52Img from '../../assets/Sec-5-2.png';
+import sec53Img from '../../assets/Sec-5-3.png';
+import tariniImg from '../../assets/Sec-4.png';
+import cat1Img from '../../assets/Category-1.png';
+import cat2Img from '../../assets/Category-2.png';
+import cat3Img from '../../assets/Category-3.png';
+import cat4Img from '../../assets/Category-4.png';
+import cat5Img from '../../assets/Category-5.png';
+import cat6Img from '../../assets/Category-6.png';
+import cat7Img from '../../assets/Category-7.png';
+import cat8Img from '../../assets/Category-8.png';
+import cat9Img from '../../assets/Category-9.png';
+import cat10Img from '../../assets/Category-10.png';
+import cat11Img from '../../assets/Category-11.png';
+import cat12Img from '../../assets/Category-12.png';
+import { isInWishlist, toggleWishlist } from '../../utils/wishlist';
+
 export function CollectionsPage() {
-  const collections = [
+  const [activeCategory, setActiveCategory] = useState('SAREES');
+  const [selectedTag, setSelectedTag] = useState('ALL');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [priceRange, setPriceRange] = useState(100000);
+  const [checkedCollections, setCheckedCollections] = useState({});
+  const [isColAccordionOpen, setIsColAccordionOpen] = useState(true);
+  const [sortBy, setSortBy] = useState('Featured');
+  const [wishlistTick, setWishlistTick] = useState(0);
+
+  // Sync wishlist updates
+  useEffect(() => {
+    const syncWishlist = () => setWishlistTick((t) => t + 1);
+    window.addEventListener('shloka_wishlist_updated', syncWishlist);
+    return () => window.removeEventListener('shloka_wishlist_updated', syncWishlist);
+  }, []);
+
+  const filterCollectionsList = [
+    { name: 'THAAIMAI', count: 24 },
+    { name: 'MAGIZHVI', count: 18 },
+    { name: 'KAADHAL MOZHI', count: 22 },
+    { name: 'JODI', count: 16 },
+    { name: 'LINEN', count: 20 },
+    { name: 'KUTCHERI', count: 28 },
+    { name: 'GEORGETTE', count: 26 },
+    { name: 'AJRAKH', count: 14 },
+    { name: 'SUMANGALI', count: 18 },
+    { name: 'SHLOKA WOMEN', count: 30 },
+    { name: 'MALAR', count: 20 },
+    { name: 'MARABU', count: 22 },
+    { name: 'DULHAN', count: 24 },
+    { name: 'MIRDULA / SOFT SILKS', count: 26 },
+    { name: 'BANARAS', count: 32 },
+    { name: 'VASANTHAM', count: 18 },
+    { name: 'THANGAM', count: 20 },
+    { name: 'SIGAPU', count: 12 },
+    { name: 'ILANJIVAPPU', count: 12 },
+    { name: 'SEMMANJAL', count: 12 },
+    { name: 'MANJAL', count: 12 },
+    { name: 'PACHAI', count: 12 },
+    { name: 'NEELAM', count: 12 },
+    { name: 'VADAMALLI', count: 12 },
+    { name: 'MUDHRA', count: 16 },
+    { name: 'CHAKRA', count: 16 },
+    { name: 'MAYURA', count: 16 },
+    { name: 'AVAL EZHIL', count: 14 },
+    { name: 'THENDRAL', count: 14 },
+    { name: 'SUDAR', count: 14 },
+    { name: 'NALINI', count: 14 },
+    { name: 'PUVI', count: 14 },
+  ];
+
+  const categories = [
+    { name: 'SAREES', image: cat1Img },
+    { name: 'NEW ARRIVALS', image: cat2Img },
+    { name: 'BRIDALS', image: cat3Img },
+    { name: 'BLOUSES', image: cat4Img },
+    { name: 'ETHNIC WEAR', image: cat5Img },
+    { name: 'LEHANGAS', image: cat6Img },
+    { name: 'KURTIS', image: cat7Img },
+    { name: 'SALWARS', image: cat8Img },
+    { name: 'KURTA SET', image: cat9Img },
+    { name: 'CO-ORDS', image: cat10Img },
+    { name: 'INDO WESTEAR', image: cat11Img },
+    { name: 'CASUAL WEAR', image: cat12Img },
+  ];
+
+  const tagsList = [
+    'ALL',
+    'NEW ARRIVALS',
+    'BEST SELLERS',
+    'SILK',
+    'KANCHIPURAM',
+    'BANARAS',
+    'LINEN',
+    'FESTIVE WEAR'
+  ];
+
+  const shopSarees = [
     {
-      title: 'Chapter I',
-      name: 'KANCHIPURAM SILKS',
-      desc: 'Heavy-weight mulberry silk sarees with contrasting gold zari borders, handwoven in the temples of Tamil Nadu.',
+      id: 'saree-padma',
+      name: 'KANCHIPURAM SILK SAREE',
+      subtitle: 'PADMA',
+      price: 24500,
       image: saree1Img,
-      accent: 'Royal Crimson Red'
+      tags: ['ALL', 'SILK', 'KANCHIPURAM', 'BEST SELLERS'],
+      category: 'SAREES',
+      collection: 'THAAIMAI'
     },
     {
-      title: 'Chapter II',
-      name: 'VARANASI KADWA',
-      desc: 'Intricate floral and foliate motifs hand-loomed with gold and silver zari in classic double-warp silks.',
+      id: 'saree-megh',
+      name: 'BANARASI SILK SAREE',
+      subtitle: 'MEGH',
+      price: 28900,
       image: saree2Img,
-      accent: 'Sage & Gold'
+      tags: ['ALL', 'SILK', 'BANARAS', 'NEW ARRIVALS'],
+      category: 'SAREES',
+      collection: 'MAGIZHVI'
     },
     {
-      title: 'Chapter III',
-      name: 'HERITAGE SHENGOTTAI',
-      desc: 'Traditional checks and structural stripes woven with fine cotton-silk blends for everyday luxury.',
+      id: 'saree-amara',
+      name: 'PURE SOFT SILK SAREE',
+      subtitle: 'AMARA',
+      price: 22900,
       image: saree3Img,
-      accent: 'Maroon & Mustard'
+      tags: ['ALL', 'SILK', 'BEST SELLERS'],
+      category: 'SAREES',
+      collection: 'KAADHAL MOZHI'
     },
     {
-      title: 'Chapter IV',
-      name: 'ORGANZA MEGH',
-      desc: 'Translucent, weightless organzas finished with hand-embroidered border details and zari trims.',
+      id: 'saree-sitara',
+      name: 'KANCHI SILK SAREE',
+      subtitle: 'SITARA',
+      price: 24900,
       image: saree4Img,
-      accent: 'Misty Blue'
+      tags: ['ALL', 'SILK', 'KANCHIPURAM', 'NEW ARRIVALS'],
+      category: 'SAREES',
+      collection: 'JODI'
+    },
+    {
+      id: 'saree-ritu',
+      name: 'ROYAL CRIMSON KANCHI',
+      subtitle: 'RITU',
+      price: 94500,
+      image: sec52Img,
+      tags: ['ALL', 'SILK', 'KANCHIPURAM', 'BEST SELLERS', 'FESTIVE WEAR'],
+      category: 'BRIDALS',
+      collection: 'KUTCHERI'
+    },
+    {
+      id: 'saree-vaanya',
+      name: 'IVORY CHANDERI SILK',
+      subtitle: 'VAANYA',
+      price: 72000,
+      image: sec51Img,
+      tags: ['ALL', 'SILK', 'BEST SELLERS', 'LINEN'],
+      category: 'ETHNIC WEAR',
+      collection: 'GEORGETTE'
+    },
+    {
+      id: 'saree-ananya',
+      name: 'VERMILION BRIDAL SAREE',
+      subtitle: 'ANANYA',
+      price: 98000,
+      image: sec53Img,
+      tags: ['ALL', 'SILK', 'BEST SELLERS', 'FESTIVE WEAR'],
+      category: 'BRIDALS',
+      collection: 'AJRAKH'
+    },
+    {
+      id: 'saree-tarini',
+      name: 'AMBER GOLD MULBERRY',
+      subtitle: 'TARINI',
+      price: 89000,
+      image: tariniImg,
+      tags: ['ALL', 'SILK', 'KANCHIPURAM', 'NEW ARRIVALS'],
+      category: 'SAREES',
+      collection: 'SUMANGALI'
     }
   ];
 
-  return (
-    <div className={styles.pageContainer}>
-      <header className={styles.header}>
-        <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
-        <span className={styles.eyebrow}>CURATED ARCHIVES</span>
-        <h1 className={styles.mainTitle}>THE COLLECTIONS</h1>
-        <p className={styles.subtitle}>Explore the chapters of Shloka’s weaving heritage.</p>
-      </header>
+  const handleCollectionCheckboxChange = (name) => {
+    setCheckedCollections((prev) => ({
+      ...prev,
+      [name]: !prev[name]
+    }));
+  };
 
-      <div className={styles.collectionsGrid}>
-        {collections.map((col, idx) => (
-          <div key={col.name} className={styles.collectionCard} style={{ animationDelay: `${idx * 0.1}s` }}>
-            <div className={styles.imageWrap}>
-              <img src={col.image} alt={col.name} className={styles.image} />
-              <span className={styles.cardAccent}>{col.accent}</span>
+  const handleClearAll = () => {
+    setCheckedCollections({});
+    setPriceRange(100000);
+    setSearchQuery('');
+    setSelectedTag('ALL');
+    setActiveCategory('SAREES');
+  };
+
+  const handleAddToBag = (saree) => {
+    const cartItem = {
+      id: saree.id,
+      name: saree.name,
+      price: saree.price,
+      image: saree.image,
+      quantity: 1
+    };
+    import('../../utils/cart').then(({ addToCart }) => {
+      addToCart(cartItem);
+      window.dispatchEvent(new Event('shloka_cart_updated'));
+    });
+  };
+
+  const filteredProducts = shopSarees.filter((saree) => {
+    if (activeCategory && saree.category !== activeCategory) {
+      if (activeCategory === 'NEW ARRIVALS' && !saree.tags.includes('NEW ARRIVALS')) return false;
+      if (activeCategory !== 'NEW ARRIVALS') return false;
+    }
+    if (selectedTag !== 'ALL' && !saree.tags.includes(selectedTag)) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (!saree.name.toLowerCase().includes(q) && !saree.subtitle.toLowerCase().includes(q)) return false;
+    }
+    if (saree.price > priceRange) return false;
+    const selectedCols = Object.keys(checkedCollections).filter(k => checkedCollections[k]);
+    if (selectedCols.length > 0 && !selectedCols.includes(saree.collection)) return false;
+    return true;
+  });
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === 'Price: Low to High') return a.price - b.price;
+    if (sortBy === 'Price: High to Low') return b.price - a.price;
+    return 0;
+  });
+
+  return (
+    <div className={styles.shopLayoutContainer}>
+      {/* Left Sidebar Filter Panel */}
+      <aside className={styles.sidebarFilter}>
+        <div className={styles.filterHeader}>
+          <span className={styles.filterTitle}>FILTERS</span>
+          <button type="button" className={styles.clearAllBtn} onClick={handleClearAll}>
+            CLEAR ALL
+          </button>
+        </div>
+
+        {/* Collections Accordion */}
+        <div className={styles.accordionSection}>
+          <button
+            type="button"
+            className={styles.accordionToggle}
+            onClick={() => setIsColAccordionOpen(!isColAccordionOpen)}
+          >
+            <span className={styles.accordionLabel}>
+              <BloomingLotusIcon width={14} height={10} stroke="#A98455" className={styles.miniLotus} />
+              COLLECTIONS
+            </span>
+            <span className={`${styles.accordionArrow} ${isColAccordionOpen ? styles.arrowUp : ''}`}>
+              ▼
+            </span>
+          </button>
+          {isColAccordionOpen && (
+            <div className={styles.checkboxScrollContainer}>
+              {filterCollectionsList.map((col) => (
+                <label key={col.name} className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={!!checkedCollections[col.name]}
+                    onChange={() => handleCollectionCheckboxChange(col.name)}
+                    className={styles.checkboxInput}
+                  />
+                  <span className={styles.checkboxText}>
+                    {col.name} <span className={styles.checkboxCount}>({col.count})</span>
+                  </span>
+                </label>
+              ))}
             </div>
-            <div className={styles.cardInfo}>
-              <span className={styles.cardChapter}>{col.title}</span>
-              <h3 className={styles.cardName}>{col.name}</h3>
-              <p className={styles.cardDesc}>{col.desc}</p>
+          )}
+        </div>
+
+        {/* Price Range Filter */}
+        <div className={styles.priceFilterSection}>
+          <div className={styles.priceToggle}>
+            <span className={styles.priceLabel}>PRICE RANGE</span>
+            <span>▼</span>
+          </div>
+          <div className={styles.sliderWrap}>
+            <input
+              type="range"
+              min="1000"
+              max="100000"
+              step="1000"
+              value={priceRange}
+              onChange={(e) => setPriceRange(Number(e.target.value))}
+              className={styles.priceSlider}
+            />
+            <div className={styles.sliderValues}>
+              <span>₹ 1,000</span>
+              <span>₹ {priceRange.toLocaleString()}{priceRange >= 100000 ? '+' : ''}</span>
             </div>
           </div>
-        ))}
+        </div>
+      </aside>
+
+      {/* Main Right Side Content */}
+      <div className={styles.shopMainContent}>
+        {/* Search Bar */}
+        <div className={styles.searchBarWrapper}>
+          <span className={styles.searchIconLeft}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C7862" strokeWidth="1.6">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m16.5 16.5 4.5 4.5" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            className={styles.searchInputField}
+            placeholder="Search sarees, collections..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <div className={styles.searchIconsRight}>
+            <button type="button" className={styles.searchAuxBtn} aria-label="Visual Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="12" cy="12" r="3" />
+                <path d="M7 7h.01M17 7h.01" />
+              </svg>
+            </button>
+            <button type="button" className={styles.searchAuxBtn} aria-label="Voice Search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" fill="none" />
+                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v3M8 22h8" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Shop By Category Horizontal Row */}
+        <div className={styles.categoryShowcaseSection}>
+          <h2 className={styles.categorySectionTitle}>SHOP BY CATEGORY</h2>
+          <div className={styles.categoryDividerRow}>
+            <span className={styles.dividerLine} />
+            <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
+            <span className={styles.dividerLine} />
+          </div>
+          <div className={styles.categoryCircleRowWrapper}>
+            <div className={styles.categoryCircleScroll}>
+              {categories.map((cat) => (
+                <button
+                  key={cat.name}
+                  type="button"
+                  className={`${styles.categoryCircleCard} ${activeCategory === cat.name ? styles.categoryCircleActive : ''}`}
+                  onClick={() => setActiveCategory(cat.name)}
+                >
+                  <div className={styles.circleFrame}>
+                    <img src={cat.image} alt={cat.name} className={styles.circleImg} />
+                  </div>
+                  <span className={styles.circleLabel}>{cat.name}</span>
+                </button>
+              ))}
+            </div>
+            <button type="button" className={styles.circleArrowBtn} aria-label="Next categories">
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Category Header details */}
+        <div className={styles.categoryHeaderDetails}>
+          <div className={styles.headerTitlesCol}>
+            <h1 className={styles.spacedCategoryTitle}>
+              {activeCategory.split('').join(' ')}
+            </h1>
+            <p className={styles.categoryItalicSubtitle}>Timeless weaves, eternal beauty.</p>
+          </div>
+          <div className={styles.headerControlsCol}>
+            <span className={styles.itemsCountLabel}>{sortedProducts.length} ITEMS</span>
+            <div className={styles.sortByDropdownWrapper}>
+              <span className={styles.sortByLabel}>SORT BY</span>
+              <select
+                className={styles.sortBySelect}
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="Featured">Featured</option>
+                <option value="Price: Low to High">Price: Low to High</option>
+                <option value="Price: High to Low">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Tag Pills Row */}
+        <div className={styles.tagPillsRow}>
+          {tagsList.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              className={`${styles.tagPill} ${selectedTag === tag ? styles.tagPillActive : ''}`}
+              onClick={() => setSelectedTag(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+          <button type="button" className={styles.tagPlusBtn}>+</button>
+        </div>
+
+        {/* Products Grid */}
+        <div className={styles.productsDisplayGrid}>
+          {sortedProducts.map((saree) => {
+            const wished = isInWishlist(saree.id);
+            return (
+              <div key={saree.id} className={styles.productDisplayCard}>
+                <div className={styles.productImgContainer}>
+                  <img src={saree.image} alt={saree.name} className={styles.productGridImg} />
+                  <button
+                    type="button"
+                    className={`${styles.wishlistToggleBtn} ${wished ? styles.wishlistedActive : ''}`}
+                    onClick={() => {
+                      toggleWishlist(saree);
+                      setWishlistTick((t) => t + 1);
+                    }}
+                    aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
+                  >
+                    <svg width="20" height="18" viewBox="0 0 24 24" fill={wished ? "#8B2635" : "none"} stroke={wished ? "#8B2635" : "#FFF"} strokeWidth="1.6">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                  </button>
+                </div>
+                <div className={styles.productGridInfo}>
+                  <h3 className={styles.productGridTitle}>{saree.name}</h3>
+                  <div className={styles.productGridFooter}>
+                    <span className={styles.productGridPrice}>₹ {saree.price.toLocaleString()}</span>
+                    <button
+                      type="button"
+                      className={styles.productBagBtn}
+                      onClick={() => handleAddToBag(saree)}
+                      aria-label="Add to cart"
+                    >
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z" />
+                        <path d="M3 6h18" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
