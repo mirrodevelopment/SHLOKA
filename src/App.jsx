@@ -60,7 +60,7 @@ export default function App() {
   // Check URL hash for #login, #signin, #cart, or #bag and route desktop pages
   useEffect(() => {
     const handleHashChange = () => {
-      const h = window.location.hash;
+      const h = window.location.hash.toLowerCase();
       
       if (h === '#login' || h === '#signin' || h === '#account') {
         setIsAuthOpen(true);

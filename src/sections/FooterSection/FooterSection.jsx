@@ -108,13 +108,15 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
           <nav className={styles.navBar} aria-label="Footer Navigation" data-ftr-text>
             <a href="#collections">COLLECTIONS</a>
             <span className={styles.dot}>•</span>
-            <a href="#boutiques">VISIT</a>
-            <span className={styles.dot}>•</span>
-            <a href="#journal">JOURNAL</a>
+            <a href="#story">STORY</a>
             <span className={styles.dot}>•</span>
             <a href="#craft">CRAFT</a>
             <span className={styles.dot}>•</span>
-            <a href="#story">STORY</a>
+            <a href="#journal">JOURNAL</a>
+            <span className={styles.dot}>•</span>
+            <a href="#about">ABOUT</a>
+            <span className={styles.dot}>•</span>
+            <a href="#contact">CONTACT</a>
           </nav>
 
           {/* Brand Signature Block */}
