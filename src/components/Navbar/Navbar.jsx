@@ -84,26 +84,53 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
       <div className={styles.desktop}>
         {/* Center Container: Nav Links + Centered SHLOKA Emblem */}
         <div className={styles.centerSection}>
-          {/* Navigation Links */}
-          <ul className={styles.links}>
-            {NAV_LINKS.map((link, i) => (
-              <li key={link.label} className={styles.navItem}>
-                {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
-                <a
-                  href={link.href}
-                  className={styles.link}
-                  id={`nav-${link.label.toLowerCase()}`}
-                  onClick={() => {
-                    if (window.innerWidth > 768) {
-                      window.scrollTo(0, 0);
-                    }
-                  }}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Navigation Links Row */}
+          <div className={styles.linksRow}>
+            {/* Left 3 links */}
+            <ul className={styles.links}>
+              {NAV_LINKS.slice(0, 3).map((link, i) => (
+                <li key={link.label} className={styles.navItem}>
+                  {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
+                  <a
+                    href={link.href}
+                    className={styles.link}
+                    id={`nav-${link.label.toLowerCase()}`}
+                    onClick={() => {
+                      if (window.innerWidth > 768) {
+                        window.scrollTo(0, 0);
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Spacer for the center logo gap */}
+            <div className={styles.logoSpacer} />
+
+            {/* Right 3 links */}
+            <ul className={styles.links}>
+              {NAV_LINKS.slice(3, 6).map((link, i) => (
+                <li key={link.label} className={styles.navItem}>
+                  {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
+                  <a
+                    href={link.href}
+                    className={styles.link}
+                    id={`nav-${link.label.toLowerCase()}`}
+                    onClick={() => {
+                      if (window.innerWidth > 768) {
+                        window.scrollTo(0, 0);
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Centered Brand Logo */}
           <a

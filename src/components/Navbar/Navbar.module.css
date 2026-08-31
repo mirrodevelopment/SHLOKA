@@ -24,6 +24,18 @@
   gap: 0px;
 }
 
+.linksRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.logoSpacer {
+  width: clamp(200px, 22vw, 300px);
+  flex-shrink: 0;
+}
+
 /* ── Navigation Links ── */
 .links {
   display: flex;
