@@ -352,3 +352,65 @@ export function ContactPage() {
     </div>
   );
 }
+
+export function NewArrivalsPage() {
+  const newSarees = [
+    {
+      id: 'saree-1',
+      title: 'THE CRIMSON PURE ZARI KANCHI',
+      desc: 'Heritage crimson silk saree featuring certified 24k gold pure zari Korvai borders.',
+      price: '₹84,500',
+      image: saree1Img,
+    },
+    {
+      id: 'saree-2',
+      title: 'THE SAGE FLOWERING MUSHROO',
+      desc: 'Handwoven Mushroo silk with gold and silver zari floral buttis across the body.',
+      price: '₹62,000',
+      image: saree2Img,
+    },
+    {
+      id: 'saree-3',
+      title: 'THE MAROON STRUCTURAL SHENGOTTAI',
+      desc: 'Shengottai checks woven with a light-weight silk-cotton blend for summer comfort.',
+      price: '₹34,500',
+      image: saree3Img,
+    },
+    {
+      id: 'saree-4',
+      title: 'THE CLOUD BLUE MEGH ORGANZA',
+      desc: 'Translucent cloud-blue organza with fine hand-spun zari borders and floral margins.',
+      price: '₹48,000',
+      image: saree4Img,
+    }
+  ];
+
+  return (
+    <div className={styles.pageContainer}>
+      <header className={styles.header}>
+        <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
+        <span className={styles.eyebrow}>LATEST WEAVES</span>
+        <h1 className={styles.mainTitle}>NEW ARRIVALS</h1>
+        <p className={styles.subtitle}>Explore the newest additions to the Shloka heritage loom.</p>
+      </header>
+
+      <div className={styles.newArrivalsGrid}>
+        {newSarees.map((saree) => (
+          <div key={saree.id} className={styles.arrivalCard}>
+            <div className={styles.imageFrame}>
+              <img src={saree.image} alt={saree.title} className={styles.arrivalImg} />
+            </div>
+            <div className={styles.arrivalInfo}>
+              <h3 className={styles.arrivalTitle}>{saree.title}</h3>
+              <p className={styles.arrivalDesc}>{saree.desc}</p>
+              <div className={styles.arrivalFooter}>
+                <span className={styles.arrivalPrice}>{saree.price}</span>
+                <span className={styles.arrivalAction}>View Piece →</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

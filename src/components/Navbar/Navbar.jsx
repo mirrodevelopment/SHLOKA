@@ -7,14 +7,17 @@ import BloomingLotusIcon from '../BloomingLotusIcon/BloomingLotusIcon';
 import { getCartCount } from '../../utils/cart';
 import styles from './Navbar.module.css';
 
-const NAV_LINKS = [
+const NAV_LINKS_LEFT = [
   { label: 'COLLECTIONS', href: '#collections' },
-  { label: 'STORY', href: '#story' },
-  { label: 'CRAFT', href: '#craft' },
-  { label: 'JOURNAL', href: '#journal' },
-  { label: 'ABOUT', href: '#about' },
+  { label: 'NEW ARRIVALS', href: '#new-arrivals' },
+];
+
+const NAV_LINKS_RIGHT = [
+  { label: 'OUR STORY', href: '#story' },
   { label: 'CONTACT', href: '#contact' },
 ];
+
+const NAV_LINKS = [...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT];
 
 const SEARCH_TAGS = [
   'Kanchipuram Silk',
@@ -86,15 +89,15 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
         <div className={styles.centerSection}>
           {/* Navigation Links Row */}
           <div className={styles.linksRow}>
-            {/* Left 3 links */}
+            {/* Left links */}
             <ul className={styles.links}>
-              {NAV_LINKS.slice(0, 3).map((link, i) => (
+              {NAV_LINKS_LEFT.map((link, i) => (
                 <li key={link.label} className={styles.navItem}>
                   {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
                   <a
                     href={link.href}
                     className={styles.link}
-                    id={`nav-${link.label.toLowerCase()}`}
+                    id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     onClick={() => {
                       if (window.innerWidth > 768) {
                         window.scrollTo(0, 0);
@@ -110,15 +113,15 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
             {/* Spacer for the center logo gap */}
             <div className={styles.logoSpacer} />
 
-            {/* Right 3 links */}
+            {/* Right links */}
             <ul className={styles.links}>
-              {NAV_LINKS.slice(3, 6).map((link, i) => (
+              {NAV_LINKS_RIGHT.map((link, i) => (
                 <li key={link.label} className={styles.navItem}>
                   {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
                   <a
                     href={link.href}
                     className={styles.link}
-                    id={`nav-${link.label.toLowerCase()}`}
+                    id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     onClick={() => {
                       if (window.innerWidth > 768) {
                         window.scrollTo(0, 0);

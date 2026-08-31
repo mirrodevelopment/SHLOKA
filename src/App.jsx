@@ -9,7 +9,7 @@ import BoutiqueSection from './sections/BoutiqueSection/BoutiqueSection';
 import FooterSection from './sections/FooterSection/FooterSection';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Navbar from './components/Navbar/Navbar';
-import { CollectionsPage, StoryPage, CraftPage, JournalPage, AboutPage, ContactPage } from './components/DesktopCustomPages/DesktopCustomPages';
+import { CollectionsPage, StoryPage, CraftPage, JournalPage, AboutPage, ContactPage, NewArrivalsPage } from './components/DesktopCustomPages/DesktopCustomPages';
 import CartDrawer from './components/CartDrawer/CartDrawer';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import MobileTopHeader from './components/MobileTopHeader/MobileTopHeader';
@@ -86,7 +86,10 @@ export default function App() {
 
       // Desktop page routing
       if (window.innerWidth > 768) {
-        if (h.includes('collection')) {
+        if (h.includes('new-arrivals')) {
+          setActiveDesktopPage('new-arrivals');
+          window.scrollTo(0, 0);
+        } else if (h.includes('collection')) {
           setActiveDesktopPage('collections');
           window.scrollTo(0, 0);
         } else if (h.includes('story')) {
@@ -148,6 +151,8 @@ export default function App() {
 
   const renderDesktopCustomPage = () => {
     switch (activeDesktopPage) {
+      case 'new-arrivals':
+        return <NewArrivalsPage />;
       case 'collections':
         return <CollectionsPage />;
       case 'story':

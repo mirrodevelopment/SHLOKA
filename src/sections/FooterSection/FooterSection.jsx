@@ -116,39 +116,21 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
             </a>
             <span className={styles.dot}>•</span>
             <a
+              href="#new-arrivals"
+              onClick={() => {
+                if (window.innerWidth > 768) window.scrollTo(0, 0);
+              }}
+            >
+              NEW ARRIVALS
+            </a>
+            <span className={styles.dot}>•</span>
+            <a
               href="#story"
               onClick={() => {
                 if (window.innerWidth > 768) window.scrollTo(0, 0);
               }}
             >
-              STORY
-            </a>
-            <span className={styles.dot}>•</span>
-            <a
-              href="#craft"
-              onClick={() => {
-                if (window.innerWidth > 768) window.scrollTo(0, 0);
-              }}
-            >
-              CRAFT
-            </a>
-            <span className={styles.dot}>•</span>
-            <a
-              href="#journal"
-              onClick={() => {
-                if (window.innerWidth > 768) window.scrollTo(0, 0);
-              }}
-            >
-              JOURNAL
-            </a>
-            <span className={styles.dot}>•</span>
-            <a
-              href="#about"
-              onClick={() => {
-                if (window.innerWidth > 768) window.scrollTo(0, 0);
-              }}
-            >
-              ABOUT
+              OUR STORY
             </a>
             <span className={styles.dot}>•</span>
             <a
