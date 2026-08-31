@@ -1,0 +1,518 @@
+.nav {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  z-index: 7;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+
+/* ── Desktop Layout ── */
+.desktop {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── Center Container: Nav Links + Centered SHLOKA Emblem ── */
+.centerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+}
+
+/* ── Navigation Links ── */
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+.dotSeparator {
+  font-size: 10px;
+  color: var(--ink, #2C2723);
+  opacity: 0.55;
+  margin: 0 28px;
+  user-select: none;
+}
+
+.link {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink, #2C2723);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  padding: 4px 0;
+}
+
+.link:hover {
+  opacity: 1;
+  color: var(--gold, #A98455);
+}
+
+/* ── Centered Logo Emblem (Image 1 text in marked place) ── */
+.centerLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--charcoal, #2F2F2F);
+  gap: 0px;
+  margin-top: -55px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.centerLogo:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.lotusIcon {
+  color: var(--gold, #A98455);
+  width: 26px;
+  height: 20px;
+}
+
+.typoLogo {
+  height: clamp(140px, 14.5vw, 195px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: 0;
+  opacity: 0.86;
+  filter: contrast(0.92) brightness(1.2);
+}
+
+.typoLogoMobile {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  opacity: 0.85;
+  filter: contrast(0.92) brightness(1.2);
+}
+
+/* Sub-line ornament under SHLOKA: ― ❖ ― */
+.logoDivider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 72px;
+  margin-top: 2px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--gold, #A98455);
+  opacity: 0.7;
+}
+
+.dividerDiamond {
+  width: 4px;
+  height: 4px;
+  background-color: var(--gold, #A98455);
+  transform: rotate(45deg);
+}
+
+/* ── Right Action Icon Image Buttons & Search Bar ── */
+.actionsContainer {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 50;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 18px);
+}
+
+.iconBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(38px, 4.2vw, 54px);
+  height: clamp(38px, 4.2vw, 54px);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.iconBtn:hover,
+.iconBtnActive {
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 3px 8px rgba(44, 39, 35, 0.15));
+}
+
+.iconBtnImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center center;
+}
+
+/* Precise medallion circle scaling to make all 3 icons exactly identical in circular diameter */
+.searchIconImg {
+  transform: scale(0.975);
+}
+
+.accountIconImg {
+  transform: scale(1.08);
+}
+
+.cartIconImg {
+  transform: scale(0.995);
+}
+
+.iconBtn:hover .iconBtnImg,
+.iconBtnActive .iconBtnImg {
+  opacity: 0.85;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #8A1528 0%, #5A0A17 100%);
+  border: 1.2px solid #FFFFFF;
+  color: #FFFFFF;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 6px rgba(138, 21, 40, 0.4);
+  animation: badgePop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ── CAPSULE DROPDOWN SEARCH BAR ── */
+.dropdownSearchBar {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: clamp(280px, 24vw, 340px);
+  margin-top: 10px;
+  background: rgba(253, 250, 245, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.2px solid #D6C4AA;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(36, 22, 10, 0.18), 0 0 0 1px rgba(212, 182, 122, 0.2);
+  padding: 12px 14px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s ease;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.dropdownSearchBarOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.dropdownSearchForm {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1.2px solid #C9B38D;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 2px 4px;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dropdownSearchForm:focus-within {
+  border-color: #5A0A17;
+  box-shadow: 0 0 0 3px rgba(90, 10, 23, 0.12);
+}
+
+.dropdownSearchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 6px;
+  color: #A98455;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.dropdownSearchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: #17130F;
+  padding: 8px 6px 8px 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dropdownSearchInput::placeholder {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  color: #9C8C7A;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.dropdownSearchClear {
+  background: transparent;
+  border: none;
+  color: #9C8C7A;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.dropdownSearchClear:hover {
+  color: #5A0A17;
+}
+
+/* ── Popular Searches / Tags Section ── */
+.quickTagsSection {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(201, 179, 141, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.quickTagsHeading {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8C7355;
+  margin: 0;
+  display: block;
+}
+
+.quickTagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tagChip {
+  background: #FCFAF6;
+  border: 1px solid #D6C4AA;
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #3A2F28;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.tagChip:hover {
+  background: #5A0A17;
+  border-color: #5A0A17;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(90, 10, 23, 0.2);
+}
+
+/* ── Mobile Header ── */
+.mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.mobileLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold, #A98455);
+  text-decoration: none;
+}
+
+.lotusIconMobile {
+  color: var(--gold, #A98455);
+}
+
+.mobileBrandTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  color: var(--gold, #A98455);
+}
+
+.menuBtn {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink, #2C2723);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.menuBtn:hover {
+  color: var(--gold, #A98455);
+}
+
+/* ── Overlay ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--ivory, #F7F3EE);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.6s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+  pointer-events: none;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+}
+
+.patronOnlineBadge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #5A0A17;
+  border: 1.5px solid #FAF6F0;
+  box-shadow: 0 0 8px rgba(90, 10, 23, 0.6);
+}
+
+.overlayOpen {
+  clip-path: inset(0 0 0 0);
+  pointer-events: auto;
+}
+
+.overlayInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.overlayLink {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--ink, #2C2723);
+  transition: color 0.3s ease;
+}
+
+.overlayLink:hover {
+  color: var(--gold, #A98455);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .dotSeparator {
+    margin: 0 10px;
+  }
+
+  .link {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+}
+
+@media (max-width: 840px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none !important;
+  }
+}

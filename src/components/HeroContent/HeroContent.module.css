@@ -1,0 +1,172 @@
+.content {
+  position: absolute;
+  left: 5vw;
+  top: 50vh;
+  transform: translateY(-50%);
+  width: clamp(340px, 29vw, 430px);
+  z-index: 6;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Primary Headline ── */
+.heading {
+  font-family: var(--serif);
+  font-size: clamp(42px, 4.4vw, 66px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  color: #7E5F38;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+/* ── Ornamental Line Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 65%;
+  margin: 0 auto 24px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background: #C4A57B;
+  opacity: 0.6;
+}
+
+.divDiamond {
+  font-size: 10px;
+  color: #AA885D;
+  line-height: 1;
+}
+
+/* ── Brand Description / Subtitle ── */
+.brandDescription {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1.85;
+  color: #4A3E30;
+  margin: 0 auto 32px;
+  text-transform: uppercase;
+  max-width: 420px;
+}
+
+/* ── Step Through Microcopy ── */
+.stepThrough {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.lotusIcon {
+  color: #BA986E;
+  opacity: 0.85;
+}
+
+.stepThroughText {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8C704C;
+}
+
+/* ── CTA Button ── */
+.ctas {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.ctaTopLine,
+.ctaBottomLine {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #9E8057;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.ctaContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.ctaText {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #241D17;
+}
+
+.ctaArrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: #241D17;
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out-quart);
+}
+
+.ctaPrimary:hover .ctaTopLine,
+.ctaPrimary:hover .ctaBottomLine {
+  opacity: 0.95;
+  background: #7E5F38;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: translateX(6px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .content {
+    left: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    padding: 90px var(--page-padding) 20px;
+    width: 100%;
+  }
+
+  .heading {
+    font-size: clamp(34px, 9vw, 52px);
+  }
+
+  .brandDescription {
+    font-size: 9.5px;
+  }
+}

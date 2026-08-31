@@ -1,0 +1,650 @@
+/* ============================================================
+   SHLOKA — Luxury Mobile Cart / Bag Screen Styles
+   Strictly scoped to <= 768px
+   ============================================================ */
+
+.screen {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .screen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100svh;
+    background-color: #FCFAF6;
+    padding-top: 10px;
+    padding-bottom: calc(150px + env(safe-area-inset-bottom, 0px));
+    animation: fadeIn 0.2s ease-out;
+    box-sizing: border-box;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── 1. Top Bar ── */
+  .topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 12px 16px;
+    border-bottom: 1px solid rgba(216, 197, 169, 0.4);
+  }
+
+  .backBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    color: #17130F;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .topTitleGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-align: center;
+  }
+
+  .topTitle {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #201A15;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .diamondDividerWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10px;
+    margin: 1px 0;
+  }
+
+  .diamondSvg {
+    display: block;
+  }
+
+  .topCount {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: #9C7B42;
+    text-transform: uppercase;
+  }
+
+  .content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+  }
+
+  /* ── 2. Complimentary Delivery Banner ── */
+  .perkBanner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FAF6F0;
+    border: 1px solid rgba(205, 180, 140, 0.5);
+    border-radius: 10px;
+    padding: 11px 14px;
+    box-sizing: border-box;
+  }
+
+  .perkIcon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .perkText {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    color: #43362A;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+
+  /* ── 3. Cart Item Card ── */
+  .itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .itemCard {
+    display: flex;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid rgba(216, 197, 169, 0.45);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+  }
+
+  .itemImageFrame {
+    width: 90px;
+    height: 116px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #F5EFE6;
+    cursor: pointer;
+  }
+
+  .itemImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .itemDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .itemHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .itemName {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #201A15;
+    margin: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .removeBtn {
+    background: none;
+    border: none;
+    color: #7A6855;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    opacity: 0.75;
+    transition: opacity 0.15s ease;
+  }
+
+  .removeBtn:active {
+    opacity: 1;
+  }
+
+  .itemSubtitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    color: #6E5C4B;
+    margin: 2px 0 6px 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .itemPrice {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #7B1C2A;
+    margin: 0 0 10px 0;
+  }
+
+  .itemControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+
+  .stepper {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(205, 180, 140, 0.6);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #F7F2EA;
+    padding: 2px 4px;
+  }
+
+  .stepBtn {
+    width: 26px;
+    height: 24px;
+    background: none;
+    border: none;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    color: #2C241D;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .stepVal {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #201A15;
+    padding: 0 6px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .itemTotal {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: #201A15;
+  }
+
+  /* ── 4. Three Luxury Value Pillars Row ── */
+  .valuePillarsRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 4px;
+    margin: 2px 0;
+    box-sizing: border-box;
+  }
+
+  .pillarCol {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pillarText {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9px;
+    font-weight: 500;
+    color: #43362A;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+
+  .pillarDivider {
+    width: 1px;
+    height: 26px;
+    background: rgba(205, 180, 140, 0.35);
+  }
+
+  /* ── 5. Privilege Code Box ── */
+  .promoBox {
+    background: #FFFFFF;
+    border: 1px solid rgba(216, 197, 169, 0.45);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .promoHeading {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #9C7B42;
+    text-transform: uppercase;
+  }
+
+  .promoForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .promoInput {
+    flex: 1;
+    height: 48px;
+    border: 1px solid rgba(216, 197, 169, 0.65);
+    border-radius: 6px;
+    padding: 0 12px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    outline: none;
+    text-transform: uppercase;
+    background: #FFFFFF;
+    color: #201A15;
+    letter-spacing: 0.04em;
+    box-sizing: border-box;
+  }
+
+  .promoInput::placeholder {
+    color: #8C7862;
+    opacity: 0.85;
+  }
+
+  .promoApplyBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .promoApplyBtn:active {
+    transform: scale(0.95);
+    filter: brightness(0.92);
+  }
+
+  .promoApplyBtnImg {
+    height: 65px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(116, 25, 38, 0.2));
+  }
+
+  .activePromoTag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(123, 28, 42, 0.08);
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: #7B1C2A;
+  }
+
+  .removePromoBtn {
+    background: none;
+    border: none;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #8C6A3D;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+  }
+
+  .promoSuccess {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    color: #2E7D32;
+    margin: 0;
+  }
+
+  .promoError {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    color: #D32F2F;
+    margin: 0;
+  }
+
+  /* ── 6. Order Summary Card ── */
+  .summaryCard {
+    background: #FFFFFF;
+    border: 1px solid rgba(216, 197, 169, 0.45);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .summaryRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11.5px;
+    color: #554535;
+  }
+
+  .summaryVal {
+    font-weight: 500;
+    color: #201A15;
+  }
+
+  .discountRow {
+    color: #2E7D32;
+    font-weight: 600;
+  }
+
+  .freeBadge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #8C6E3E;
+    background: #F4EFE6;
+    border: 1px solid rgba(184, 137, 62, 0.25);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .grandTotalRow {
+    border-top: 1px solid rgba(216, 197, 169, 0.4);
+    padding-top: 12px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .grandLabel {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: #201A15;
+  }
+
+  .grandVal {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: #7B1C2A;
+  }
+
+  /* ── 7. Assured & Insured Delivery Card ── */
+  .assuranceCard {
+    background: #FAF6F0;
+    border: 1px solid rgba(205, 180, 140, 0.5);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .assuranceLotusWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .assuranceText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .assuranceTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #9C7B42;
+    text-transform: uppercase;
+  }
+
+  .assuranceSubtitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10.5px;
+    color: #685644;
+    line-height: 1.35;
+  }
+
+  .assuranceArrow {
+    font-size: 18px;
+    color: #9C7B42;
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  /* ── 8. Sticky Bottom Checkout Bar ── */
+  .stickyCheckout {
+    position: fixed;
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(216, 197, 169, 0.45);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.04);
+    z-index: 940;
+    box-sizing: border-box;
+  }
+
+  .checkoutPriceBlock {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkoutLabel {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #7A6855;
+    text-transform: uppercase;
+  }
+
+  .checkoutAmount {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #17130F;
+    margin-top: 2px;
+  }
+
+  .checkoutBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .checkoutBtn:active {
+    transform: scale(0.97);
+    filter: brightness(0.92);
+  }
+
+  .checkoutBtnImg {
+    width: clamp(190px, 55vw, 235px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 3px 10px rgba(116, 25, 38, 0.24));
+  }
+
+  /* Empty State */
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    flex: 1;
+  }
+
+  .emptyLotus {
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .emptyTitle {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: #17130F;
+    margin: 0 0 8px 0;
+  }
+
+  .emptySubtitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 12px;
+    color: #7A6855;
+    max-width: 260px;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+  }
+
+  .exploreBtn {
+    background: #7B1C2A;
+    color: #FCFAF6;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

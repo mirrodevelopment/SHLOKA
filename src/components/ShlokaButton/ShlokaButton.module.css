@@ -1,0 +1,591 @@
+/* ═══════════════════════════════════════════════════════════════
+   SHLOKA — PREMIUM HANDCRAFTED BUTTON SYSTEM
+   
+   Visual philosophy: A tiny piece of Shloka's saree embroidery
+   transformed into an interactive button.
+   
+   Variants: primary | secondary | text | icon | disabled
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── SHARED RESETS ── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--sans, "Inter", sans-serif);
+  isolation: isolate;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #C79A5D;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ═══════════════════════════════════════
+   PRIMARY BUTTON
+   
+   Ivory textile capsule with embroidered
+   gold border — the hero CTA.
+   ═══════════════════════════════════════ */
+.primary {
+  height: 64px;
+  min-width: 300px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: linear-gradient(
+    168deg,
+    #F9F5F0 0%,
+    #F5EEE6 35%,
+    #F2EBE1 65%,
+    #F7F3EE 100%
+  );
+  color: #9B7440;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  gap: 14px;
+  overflow: hidden;
+
+  /* ── Layered embroidered border system ── */
+  box-shadow:
+    /* Outer soft ambient shadow */
+    0 2px 8px rgba(160, 132, 85, 0.10),
+    0 4px 16px rgba(160, 132, 85, 0.06),
+    /* Outer gold embroidery ring */
+    0 0 0 2.5px #D8C5A4,
+    /* Fine inner gold stitch line */
+    inset 0 0 0 1.5px #D8C5A4,
+    /* Inner bevel — raised stitched edge */
+    inset 0 2px 4px rgba(255, 252, 245, 0.8),
+    inset 0 -1px 3px rgba(180, 155, 110, 0.12);
+
+  transition:
+    background 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Textile woven surface texture ── */
+.primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background:
+    /* Horizontal weft threads */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(160, 132, 85, 0.5) 3px,
+      rgba(160, 132, 85, 0.5) 3.5px
+    ),
+    /* Vertical warp threads */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(140, 115, 70, 0.4) 4px,
+      rgba(140, 115, 70, 0.4) 4.5px
+    );
+  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Hover shimmer sweep ── */
+.primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 248, 235, 0.45) 45%,
+    rgba(255, 248, 235, 0.65) 50%,
+    rgba(255, 248, 235, 0.45) 55%,
+    transparent 80%
+  );
+  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.primary:hover {
+  background: linear-gradient(
+    168deg,
+    #F3EDE4 0%,
+    #EFE6D8 35%,
+    #EBE0D2 65%,
+    #F0E9DE 100%
+  );
+  color: #7A5C30;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    /* Deeper ambient shadow on lift */
+    0 4px 14px rgba(160, 132, 85, 0.16),
+    0 8px 24px rgba(160, 132, 85, 0.08),
+    /* Richer outer gold embroidery */
+    0 0 0 2.5px #C9A86E,
+    /* Inner gold stitch intensified */
+    inset 0 0 0 1.5px #C9A86E,
+    /* Enhanced inner bevel */
+    inset 0 2px 5px rgba(255, 252, 245, 0.9),
+    inset 0 -1px 4px rgba(180, 155, 110, 0.18);
+}
+
+.primary:hover::before {
+  opacity: 0.05;
+}
+
+.primary:hover::after {
+  left: 120%;
+}
+
+.primary:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow:
+    0 1px 4px rgba(160, 132, 85, 0.12),
+    0 0 0 2.5px #D8C5A4,
+    inset 0 0 0 1.5px #D8C5A4,
+    inset 0 1px 3px rgba(180, 155, 110, 0.15),
+    inset 0 -1px 2px rgba(255, 252, 245, 0.5);
+  transition-duration: 120ms;
+}
+
+
+/* ═══════════════════════════════════════
+   SECONDARY BUTTON
+   ═══════════════════════════════════════ */
+.secondary {
+  height: 58px;
+  min-width: 260px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: linear-gradient(
+    168deg,
+    #F9F6F1 0%,
+    #F6F1EA 50%,
+    #F8F4EF 100%
+  );
+  color: #9B7440;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  gap: 12px;
+  overflow: hidden;
+
+  box-shadow:
+    0 1px 6px rgba(160, 132, 85, 0.08),
+    0 0 0 2px #D8C5A4,
+    inset 0 0 0 1px #D8C5A4,
+    inset 0 1.5px 3px rgba(255, 252, 245, 0.7),
+    inset 0 -1px 2px rgba(180, 155, 110, 0.10);
+
+  transition:
+    background 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(160, 132, 85, 0.5) 3px,
+      rgba(160, 132, 85, 0.5) 3.5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(140, 115, 70, 0.4) 4px,
+      rgba(140, 115, 70, 0.4) 4.5px
+    );
+  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 248, 235, 0.35) 45%,
+    rgba(255, 248, 235, 0.5) 50%,
+    rgba(255, 248, 235, 0.35) 55%,
+    transparent 80%
+  );
+  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.secondary:hover {
+  background: linear-gradient(
+    168deg,
+    #F3EDE4 0%,
+    #EFE6D8 50%,
+    #F0E9DE 100%
+  );
+  color: #7A5C30;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 3px 12px rgba(160, 132, 85, 0.14),
+    0 0 0 2px #C9A86E,
+    inset 0 0 0 1px #C9A86E,
+    inset 0 2px 4px rgba(255, 252, 245, 0.85),
+    inset 0 -1px 3px rgba(180, 155, 110, 0.15);
+}
+
+.secondary:hover::before {
+  opacity: 0.045;
+}
+
+.secondary:hover::after {
+  left: 120%;
+}
+
+.secondary:active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 120ms;
+}
+
+
+/* ═══════════════════════════════════════
+   TEXT BUTTON
+   ═══════════════════════════════════════ */
+.text {
+  color: #9B7440;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  gap: 10px;
+  padding: 6px 0;
+  border-radius: 0;
+
+  transition:
+    color 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animated underline */
+.text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #C9A86E 15%,
+    #D8B27A 50%,
+    #C9A86E 85%,
+    transparent 100%
+  );
+  opacity: 0.45;
+  transform: scaleX(0.6);
+  transform-origin: left center;
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.text:hover {
+  color: #7A5C30;
+}
+
+.text:hover::after {
+  transform: scaleX(1);
+  opacity: 0.7;
+}
+
+.text:active {
+  transform: scale(0.985);
+  transition-duration: 120ms;
+}
+
+.text:focus-visible {
+  border-radius: 4px;
+}
+
+
+/* ═══════════════════════════════════════
+   ICON BUTTON
+   ═══════════════════════════════════════ */
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 0;
+  background: linear-gradient(
+    155deg,
+    #F9F5F0 0%,
+    #F5EEE6 40%,
+    #F2EBE1 70%,
+    #F7F3EE 100%
+  );
+  color: #9B7440;
+  overflow: hidden;
+
+  box-shadow:
+    0 1.5px 6px rgba(160, 132, 85, 0.09),
+    0 3px 10px rgba(160, 132, 85, 0.05),
+    0 0 0 2px #D8C5A4,
+    inset 0 0 0 1px #D8C5A4,
+    inset 0 1.5px 3px rgba(255, 252, 245, 0.75),
+    inset 0 -1px 2px rgba(180, 155, 110, 0.10);
+
+  transition:
+    background 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Woven texture on circle */
+.icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2.5px,
+      rgba(160, 132, 85, 0.45) 2.5px,
+      rgba(160, 132, 85, 0.45) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(140, 115, 70, 0.35) 3px,
+      rgba(140, 115, 70, 0.35) 3.5px
+    );
+  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon:hover {
+  background: linear-gradient(
+    155deg,
+    #F3EDE4 0%,
+    #EFE6D8 40%,
+    #EBE0D2 70%,
+    #F0E9DE 100%
+  );
+  color: #7A5C30;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 3px 10px rgba(160, 132, 85, 0.15),
+    0 6px 18px rgba(160, 132, 85, 0.07),
+    0 0 0 2px #C9A86E,
+    inset 0 0 0 1px #C9A86E,
+    inset 0 2px 4px rgba(255, 252, 245, 0.85),
+    inset 0 -1px 3px rgba(180, 155, 110, 0.14);
+}
+
+.icon:hover::before {
+  opacity: 0.045;
+}
+
+.icon:active {
+  transform: translateY(0) scale(0.96);
+  transition-duration: 120ms;
+}
+
+/* Icon SVG inside the button */
+.iconSvg {
+  position: relative;
+  z-index: 2;
+  width: 19px;
+  height: 19px;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon:hover .iconSvg {
+  transform: scale(1.05);
+}
+
+
+/* ═══════════════════════════════════════
+   DISABLED BUTTON
+   ═══════════════════════════════════════ */
+.disabled {
+  height: 58px;
+  min-width: 240px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: linear-gradient(
+    168deg,
+    #F0EDE9 0%,
+    #EBE8E3 50%,
+    #EDEBE7 100%
+  );
+  color: #B8B0A5;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  opacity: 0.7;
+
+  box-shadow:
+    0 1px 4px rgba(140, 130, 115, 0.06),
+    0 0 0 1.5px #CCC6BC,
+    inset 0 0 0 1px #CCC6BC,
+    inset 0 1px 2px rgba(255, 252, 245, 0.4);
+}
+
+.disabled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(140, 130, 115, 0.3) 3px,
+      rgba(140, 130, 115, 0.3) 3.5px
+    );
+}
+
+
+/* ═══════════════════════════════════════
+   BUTTON CONTENT — LABEL + ARROW
+   ═══════════════════════════════════════ */
+.label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.arrow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Arrow animates independently on hover */
+.primary:hover .arrow,
+.secondary:hover .arrow {
+  transform: translateX(6px);
+}
+
+.text:hover .arrow {
+  transform: translateX(5px);
+}
+
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 840px) {
+  .primary {
+    height: 56px;
+    min-width: 260px;
+    padding: 0 24px;
+    font-size: 11px;
+  }
+
+  .secondary {
+    height: 52px;
+    min-width: 220px;
+    padding: 0 22px;
+    font-size: 11px;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .iconSvg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .primary {
+    height: 52px;
+    min-width: 0;
+    width: 100%;
+    max-width: 340px;
+    padding: 0 22px;
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+  }
+
+  .secondary {
+    height: 48px;
+    min-width: 0;
+    width: 100%;
+    max-width: 300px;
+    padding: 0 20px;
+    font-size: 10.5px;
+  }
+
+  .text {
+    font-size: 10px;
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .iconSvg {
+    width: 16px;
+    height: 16px;
+  }
+}

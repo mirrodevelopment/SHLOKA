@@ -1,0 +1,55 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--ink);
+  border-radius: 50%;
+  opacity: 0.6;
+  will-change: transform;
+}
+
+.ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  opacity: 0.2;
+  will-change: transform;
+  transition: width 0.3s var(--ease-out-expo),
+              height 0.3s var(--ease-out-expo),
+              opacity 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.expanded {
+  width: 48px;
+  height: 48px;
+  opacity: 0.35;
+  border-color: var(--gold);
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+/* Hide on touch devices and mobile */
+@media (max-width: 768px),
+       (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    display: none;
+  }
+}

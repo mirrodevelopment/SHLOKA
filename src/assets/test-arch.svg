@@ -1,0 +1,19 @@
+<svg width="280" height="430" viewBox="0 0 280 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="
+      M 2 429
+      L 2 145
+      C 2 120, 16 100, 42 100
+      C 36 90, 50 68, 88 68
+      C 82 54, 108 30, 140 4
+      C 172 30, 198 54, 192 68
+      C 230 68, 244 90, 238 100
+      C 264 100, 278 120, 278 145
+      L 278 429
+    "
+    stroke="#A07F3A"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>

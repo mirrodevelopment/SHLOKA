@@ -1,0 +1,80 @@
+.container {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.motif {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0;
+  will-change: transform;
+}
+
+/* ── Individual positions ── */
+.chakra {
+  top: 12%;
+  right: 10%;
+  animation: slowSpin 50s linear infinite;
+}
+
+.lotus {
+  bottom: 28%;
+  left: 35%;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.star {
+  bottom: 18%;
+  left: 12%;
+  animation: slowSpin 40s linear infinite reverse;
+}
+
+.crescent {
+  top: 30%;
+  right: 35%;
+  animation: breathe 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.vertLine {
+  top: 20%;
+  right: 25%;
+  animation: breathe 12s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* ── Animations ── */
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.38; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .chakra {
+    width: 50px;
+    height: 50px;
+    top: 8%;
+    right: 6%;
+  }
+
+  .lotus,
+  .star,
+  .vertLine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motif {
+    animation: none;
+  }
+}

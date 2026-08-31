@@ -1,0 +1,591 @@
+.section {
+  position: relative;
+  background-color: #FCFAF6;
+  color: var(--ink, #17130F);
+  width: 100%;
+  padding-top: clamp(50px, 6vh, 80px);
+  padding-bottom: clamp(50px, 6vh, 80px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  scroll-margin-top: 16px;
+}
+
+/* ── TOP CENTER SECTION HEADER ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(100px, 13vh, 160px);
+  width: 100%;
+  padding-left: var(--page-padding, 3vw);
+  padding-right: var(--page-padding, 3vw);
+}
+
+/* ── THE CRAFT ARTWORK BANNER ── */
+.craftArtwork {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: clamp(14px, 2vh, 28px);
+}
+
+.craftArtworkImg {
+  width: 100%;
+  max-width: clamp(420px, 52vw, 760px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.96;
+  filter: contrast(1.03) saturate(1.05);
+  display: block;
+}
+
+.topLotus {
+  color: #A98455;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.eyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(36px, 4.5vw, 76px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  line-height: 1.05;
+  color: #8A1528;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.diamondDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  margin-bottom: 12px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.divDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+.subtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(15px, 1.3vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  color: #8C6A3D;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 0 0 16px 0;
+}
+
+.taglineBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: clamp(9.5px, 0.72vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #8C6A3D;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.bullet {
+  font-size: 7px;
+  color: #C9B38D;
+}
+
+/* ── UPPER SPLIT GRID (LEFT QUOTE CARD + RIGHT SILK PHOTOGRAPH) ── */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 47.5% 52.5%;
+  width: 100%;
+  min-height: clamp(480px, 58vh, 660px);
+  position: relative;
+  border-top: 1px solid rgba(201, 179, 141, 0.35);
+  border-bottom: 1px solid rgba(201, 179, 141, 0.35);
+}
+
+/* ── LEFT LUXURY CRAFT STORY CARD ── */
+.leftCard {
+  background-color: #FCFAF6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(36px, 4.5vw, 68px) clamp(24px, 3.5vw, 56px);
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.craftCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 460px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Flourishes & Dividers */
+.cardTopFlourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: clamp(140px, 16vw, 220px);
+  margin-bottom: clamp(12px, 1.6vh, 20px);
+}
+
+.flourishLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.flourishLineShort {
+  width: clamp(24px, 3vw, 44px);
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.flourishLotus {
+  color: #A98455;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+}
+
+.flourishLotusSmall {
+  color: #A98455;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+}
+
+.cardLotusDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: clamp(140px, 16vw, 220px);
+  margin: clamp(12px, 1.6vh, 18px) 0;
+}
+
+.cardDiamondDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: clamp(70px, 8vw, 100px);
+  margin: clamp(12px, 1.6vh, 18px) 0;
+}
+
+.flourishDiamond {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.8;
+}
+
+.cardBottomFlourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: clamp(16px, 2.2vh, 26px);
+}
+
+.flourishDot {
+  width: 3px;
+  height: 3px;
+  background-color: #A98455;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+/* Typography matching 2nd image */
+.cardMainTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+  color: #1A1410;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
+.cardSubtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 400;
+  line-height: 1.3;
+  color: #967446;
+  margin: 0;
+  text-align: center;
+}
+
+.cardBodyText {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(14px, 1.05vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  color: #4A3E30;
+  margin: 0;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* ── RIGHT SILK FABRIC PHOTOGRAPH FRAME ── */
+.rightImageFrame {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #FAF6F0;
+}
+
+.rightImageFrame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #FCFAF6 0%, rgba(252, 250, 246, 0.5) 4%, rgba(252, 250, 246, 0) 18%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.craftImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, #000 12%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, #000 12%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ── DESKTOP VS MOBILE VISIBILITY ── */
+.desktopOnlyCraft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mobileOnlyCraft {
+  display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .title {
+    white-space: nowrap;
+    font-size: clamp(20px, 5.2vw, 34px);
+    letter-spacing: clamp(0.18em, 3.2vw, 0.45em);
+  }
+
+  .splitGrid {
+    grid-template-columns: 100%;
+  }
+
+  .leftCard {
+    padding: 36px 20px;
+  }
+
+  .rightImageFrame {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktopOnlyCraft {
+    display: none !important;
+  }
+
+  .mobileOnlyCraft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px 28px 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* 1. Marked Top Artwork (Lady Weaver) */
+  .mobileMarkedArtwork {
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobileMarkedImg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 2. Header Block */
+  .mobileHeaderBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 440px;
+    will-change: transform, opacity;
+  }
+
+  .mobileLotus {
+    margin-bottom: 6px;
+    color: #A98455;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobileEyebrow {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: #8C7862;
+    margin-bottom: 10px;
+  }
+
+  .mobileHeadline {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-size: clamp(21px, 6.2vw, 28px);
+    font-weight: 500;
+    color: #741926;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .mobileSubline {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: clamp(12.5px, 3.6vw, 15px);
+    color: #7A6855;
+    margin: 0;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  /* 3. Hero Saree Fabric Image */
+  .mobileFabricHeroWrap {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(35, 20, 10, 0.08);
+    margin-bottom: 24px;
+    background-color: #F5EFEB;
+    will-change: transform, opacity;
+  }
+
+  .mobileFabricHeroImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* 4. Four Pillar Specification Columns */
+  .mobilePillarsGrid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 22px;
+  }
+
+  .mobilePillarCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+    padding: 0 2px;
+  }
+
+  .mobilePillarIcon {
+    width: clamp(34px, 9.5vw, 42px);
+    height: auto;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .mobilePillarTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: clamp(7.2px, 2vw, 8.8px);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #5C4A38;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .mobilePillarDesc {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: clamp(8px, 2.1vw, 9.8px);
+    color: #7A6855;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .mobilePillarDivider {
+    width: 1px;
+    height: 52px;
+    background-color: rgba(201, 179, 141, 0.45);
+    flex-shrink: 0;
+    align-self: center;
+    margin-top: 10px;
+  }
+
+  /* 5. Horizontal Diamond Divider */
+  .mobileDiamondLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 18px;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .mobileDivLine {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(201, 179, 141, 0.45);
+  }
+
+  .mobileDivDot {
+    width: 4.5px;
+    height: 4.5px;
+    background-color: #A98455;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* 6. Pit-Loom Arches Illustration */
+  .mobileLoomArchWrap {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .mobileLoomArchImg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 7. Concluding Craft Verse */
+  .mobileFooterTextWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 440px;
+    gap: 6px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .mobileFooterQuote {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: clamp(13px, 3.8vw, 15.5px);
+    color: #5C4A38;
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  .mobileFooterTagline {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: clamp(7.5px, 2.1vw, 8.5px);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: #8C7862;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    white-space: nowrap;
+    font-size: clamp(16px, 4.8vw, 24px);
+    letter-spacing: clamp(0.14em, 2.5vw, 0.28em);
+  }
+
+  .eyebrow {
+    letter-spacing: 0.28em;
+    font-size: 9px;
+  }
+}

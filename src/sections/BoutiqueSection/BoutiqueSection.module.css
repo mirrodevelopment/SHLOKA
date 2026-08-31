@@ -1,0 +1,1044 @@
+/* ============================================================
+   SHLOKA — "THE HOUSE" Boutique Section Styles
+   ============================================================ */
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #FCFAF6;
+  padding-top: clamp(120px, 15vh, 180px);
+  padding-bottom: clamp(120px, 15vh, 180px);
+  padding-left: clamp(16px, 4vw, 48px);
+  padding-right: clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Botanical Tree Foliage on Far Left & Right Margins ── */
+.houseLeftLeafImg {
+  position: absolute;
+  left: 0;
+  top: 56%;
+  transform: translateY(-50%);
+  height: clamp(440px, 50vh, 620px);
+  width: auto;
+  max-width: clamp(220px, 23vw, 380px);
+  object-fit: contain;
+  object-position: left center;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 1;
+  filter: drop-shadow(0 6px 18px rgba(36, 22, 10, 0.04));
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.houseRightLeafImg {
+  position: absolute;
+  right: 0;
+  top: 51%;
+  transform: translateY(-50%);
+  height: 78vh;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  object-position: right center;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 1;
+  filter: drop-shadow(0 6px 18px rgba(36, 22, 10, 0.04));
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* ── Main Section Container (Clean & Frameless) ── */
+.contentContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(8px, 2vw, 24px);
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* ── Section Header ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+/* ── Visit Shloka Calligraphy Artwork Banner ── */
+.visitShlokaArtwork {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(26px, 2vh, 50px);
+  width: 100%;
+}
+
+.visitShlokaArtworkImg {
+  width: 100%;
+  max-width: clamp(350px, 48vw, 1000px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 20px rgba(160, 127, 58, 0.1));
+  display: block;
+}
+
+.headerLotus {
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.eyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: clamp(9px, 0.7vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #7A6855;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.title {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(32px, 4.2vw, 56px);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8A1528;
+  margin: 0 0 12px 0;
+  line-height: 1.15;
+}
+
+.diamondDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  width: 120px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #D6C4AA;
+}
+
+.divDot {
+  width: 5px;
+  height: 5px;
+  background-color: #A07F3A;
+  transform: rotate(45deg);
+}
+
+.subtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(15px, 1.3vw, 19px);
+  font-style: italic;
+  color: #7A6855;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ── City Navigation Bar on Golden Thread ── */
+.cityNavWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto clamp(36px, 5vw, 60px) auto;
+  padding: 16px 0;
+}
+
+.goldThreadSvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.threadDashAnim {
+  animation: threadShimmer 20s linear infinite;
+}
+
+@keyframes threadShimmer {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.cityNavList {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 1.6vw, 22px);
+  width: 100%;
+}
+
+.tabContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cartouche Plaque Button */
+.cartoucheBtn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 14px clamp(16px, 2.2vw, 32px);
+  min-width: clamp(120px, 12.5vw, 168px);
+  min-height: 52px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.cartoucheSvgFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 2px 6px rgba(36, 22, 10, 0.04));
+  transition: filter 0.35s ease;
+}
+
+.cartoucheBgPath {
+  fill: #FCFAF6;
+  transition: fill 0.3s ease;
+}
+
+.cartoucheBorderPath {
+  stroke: #D6C4AA;
+  stroke-width: 1.2;
+  transition: stroke 0.35s ease, stroke-width 0.35s ease;
+}
+
+.cartoucheBtn:hover {
+  transform: translateY(-3px);
+}
+
+.cartoucheBtn:hover .cartoucheSvgFrame {
+  filter: drop-shadow(0 8px 18px rgba(169, 132, 85, 0.22));
+}
+
+.cartoucheBtn:hover .cartoucheBorderPath {
+  stroke: #A07F3A;
+}
+
+.cartoucheBtn:hover .cartoucheCityTitle {
+  color: #8A1528;
+}
+
+/* Active Cartouche Plaque */
+.cartoucheBtnActive {
+  transform: translateY(-3px);
+}
+
+.cartoucheBtnActive .cartoucheSvgFrame {
+  filter: drop-shadow(0 8px 22px rgba(138, 21, 40, 0.16));
+}
+
+.cartoucheBtnActive .cartoucheBgPath {
+  fill: #FFFDF9;
+}
+
+.cartoucheBtnActive .cartoucheBorderPath {
+  stroke: #8A1528;
+  stroke-width: 1.6;
+}
+
+/* Lotus Crest */
+.tabLotusWrapper {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease;
+}
+
+.activeColoredLotus {
+  filter: drop-shadow(0 2px 4px rgba(138, 21, 40, 0.2));
+  animation: lotusBloom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lotusBloom {
+  0% {
+    transform: scale(0.7);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Content inside Plaque */
+.tabContentGroup {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  margin-top: 4px;
+}
+
+.cartoucheCityTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7A6855;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.cartoucheBtnActive .cartoucheCityTitle {
+  color: #8A1528;
+  font-weight: 700;
+}
+
+.activeDiamondDot {
+  font-size: 7px;
+  color: #8A1528;
+  line-height: 1;
+  margin-top: -1px;
+  animation: diamondPop 0.3s ease-out;
+}
+
+@keyframes diamondPop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hanging Silk Tassel */
+.hangingTassel {
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  animation: tasselPhysicsSway 3.8s ease-in-out infinite;
+  transform-origin: top center;
+  z-index: 4;
+}
+
+@keyframes tasselPhysicsSway {
+
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-50%) rotate(5deg);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(-5deg);
+  }
+}
+
+.tasselCord {
+  width: 1.5px;
+  height: 9px;
+  background: linear-gradient(180deg, #A07F3A 0%, #D4B67A 100%);
+}
+
+.tasselBead {
+  width: 5px;
+  height: 5px;
+  background-color: #8A1528;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(138, 21, 40, 0.3);
+}
+
+.tasselKnot {
+  width: 7px;
+  height: 5px;
+  background: linear-gradient(135deg, #A07F3A 0%, #D4B67A 100%);
+  border-radius: 2px;
+  margin-top: 1px;
+}
+
+.tasselFringe {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 13px solid #C9B38D;
+  margin-top: 1px;
+  filter: drop-shadow(0 2px 4px rgba(160, 127, 58, 0.25));
+}
+
+/* ── Main Showcase Area (Left Architecture + Center Needle + Right Details) ── */
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: 1.15fr auto 0.95fr;
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto clamp(40px, 6vw, 70px) auto;
+}
+
+/* ── Left Architecture Entrance Area ── */
+.archVisualContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.storeArchFrame {
+  width: 100%;
+  max-width: clamp(480px, 50vw, 720px);
+  position: relative;
+  z-index: 2;
+  animation: archFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes archFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.storeArchImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 14px 32px rgba(36, 22, 10, 0.09));
+  transition: transform 0.4s ease;
+}
+
+.storeArchImage:hover {
+  transform: scale(1.02);
+}
+
+
+/* ── Center: Vertical Needle Divider ── */
+.verticalNeedleDivider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: clamp(240px, 26vw, 340px);
+  width: 16px;
+}
+
+.needleLine {
+  flex: 1;
+  width: 1px;
+  background-color: #D6C4AA;
+  opacity: 0.75;
+}
+
+.needleFinialTop,
+.needleFinialMid,
+.needleFinialBottom {
+  width: 5px;
+  height: 5px;
+  background-color: #A07F3A;
+  transform: rotate(45deg);
+  margin: 3px 0;
+}
+
+/* ── Right: Boutique Details Card ── */
+.houseDetailsCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 24px;
+  animation: archFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cardTopLotus {
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.houseCityHeading {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8A1528;
+  margin: 0 0 6px 0;
+}
+
+.houseSubLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: clamp(9px, 0.75vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7A6855;
+  margin: 0 0 16px 0;
+}
+
+.cardDiamondDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  width: 80px;
+}
+
+.cardDivLine {
+  flex: 1;
+  height: 1px;
+  background-color: #D6C4AA;
+}
+
+.cardDivDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A07F3A;
+  transform: rotate(45deg);
+}
+
+.houseHours {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: clamp(12px, 1vw, 14.5px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #3C3026;
+  margin: 0 0 18px 0;
+}
+
+.houseAddress {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-style: normal;
+  font-size: clamp(12.5px, 0.95vw, 14.5px);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: #5A4A3C;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.addressLine {
+  display: block;
+}
+
+.viewDetailsImgBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  width: clamp(220px, 20vw, 310px);
+  height: clamp(54px, 5vw, 76px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.viewDetailsImgBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 6px 18px rgba(138, 21, 40, 0.25));
+}
+
+.viewDetailsBtnDefault,
+.viewDetailsBtnHover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: opacity 0.35s ease;
+}
+
+.viewDetailsBtnDefault {
+  opacity: 1;
+}
+
+.viewDetailsBtnHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.viewDetailsImgBtn:hover .viewDetailsBtnDefault {
+  opacity: 0;
+}
+
+.viewDetailsImgBtn:hover .viewDetailsBtnHover {
+  opacity: 1;
+}
+
+/* ── Bottom Footer with Sweeping Golden Rope & Link ── */
+.bottomFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.exploreAllLink {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: clamp(10px, 0.8vw, 11.5px);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #8A1528;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  transition: all 0.25s ease;
+}
+
+.exploreAllLink:hover {
+  color: #5A0A17;
+  transform: translateY(-1px);
+}
+
+.exploreArrow {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.exploreAllLink:hover .exploreArrow {
+  transform: translateX(5px);
+}
+
+.bottomRopeContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottomRopeSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bottomRopeLotus {
+  position: relative;
+  z-index: 2;
+  background: #FCFAF6;
+  padding: 0 8px;
+  transform: translateY(12px);
+}
+
+.bottomRightTassel {
+  position: absolute;
+  right: 25px;
+  top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: tasselSway 3.5s ease-in-out infinite;
+  transform-origin: top center;
+  z-index: 2;
+}
+
+/* ── Luxury Appointment / Details Modal ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 19, 15, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(180deg, #FAF7F2 0%, #F5EDE1 100%);
+  border: 1px solid #D6C4AA;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(23, 19, 15, 0.35);
+  padding: 32px 36px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: 1px solid rgba(201, 179, 141, 0.4);
+  color: #7A6855;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.modalCloseBtn:hover {
+  background: #8A1528;
+  color: #FFFFFF;
+  border-color: #8A1528;
+  transform: rotate(90deg);
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.modalLotus {
+  margin-bottom: 6px;
+}
+
+.modalEyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #A07F3A;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modalTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: #8A1528;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.1em;
+}
+
+.modalSubtitle {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7A6855;
+  margin: 0;
+}
+
+.modalInfoSection {
+  background: #FFFFFF;
+  border: 1px solid #E5D7C3;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalInfoBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalInfoLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #A07F3A;
+  margin-bottom: 2px;
+}
+
+.modalInfoVal {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 15px;
+  color: #2F2720;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.modalPhoneLink {
+  color: #8A1528;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.modalPhoneLink:hover {
+  text-decoration: underline;
+}
+
+/* Appointment Form */
+.appointmentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formHeading {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #A07F3A;
+  margin: 0;
+  text-align: center;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+}
+
+.formLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #7A6855;
+}
+
+.formInput {
+  background: #FFFFFF;
+  border: 1px solid #D6C4AA;
+  border-radius: 4px;
+  padding: 9px 12px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  color: #17130F;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.formInput:focus {
+  border-color: #8A1528;
+}
+
+.formSubmitBtn {
+  background: linear-gradient(135deg, #8A1528 0%, #5A0A17 100%);
+  color: #FAF7F2;
+  border: 1px solid #D4B67A;
+  border-radius: 4px;
+  padding: 13px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.formSubmitBtn:hover {
+  background: #A21D34;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(138, 21, 40, 0.35);
+}
+
+.modalSuccessState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 8px;
+}
+
+.modalSuccessLotus {
+  margin-bottom: 12px;
+  animation: modalFadeIn 0.5s ease-out;
+}
+
+.modalSuccessTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: #8A1528;
+  margin: 0 0 8px 0;
+}
+
+.modalSuccessText {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #4A3E30;
+  margin: 0;
+}
+
+/* ── Responsive Breakpoints ── */
+@media (min-width: 1200px) {
+
+  .houseRightLeafImg {
+    right: 0;
+    top: 65%;
+    height: 79vh;
+    max-width: 230px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .houseRightLeafImg {
+    right: -5px;
+    top: 50%;
+    height: 65vh;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 900px) {
+  .title {
+    white-space: nowrap;
+    font-size: clamp(18px, 4.8vw, 32px);
+    letter-spacing: clamp(0.16em, 2.6vw, 0.28em);
+  }
+
+  .showcaseGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .verticalNeedleDivider {
+    display: none;
+  }
+
+  .cityNavList {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .goldThreadSvg {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    white-space: nowrap;
+    font-size: clamp(15px, 4.5vw, 22px);
+    letter-spacing: clamp(0.12em, 2vw, 0.22em);
+  }
+
+  .eyebrow {
+    letter-spacing: 0.24em;
+    font-size: 8.5px;
+  }
+
+  .houseLeftLeafImg,
+  .houseRightLeafImg {
+    display: none;
+  }
+
+  .contentContainer {
+    padding: 0 8px;
+  }
+
+  .cartoucheBtn {
+    min-width: 105px;
+    padding: 10px 14px;
+    min-height: 44px;
+  }
+
+  .cartoucheCityTitle {
+    font-size: 13px;
+  }
+
+  .modalContent {
+    padding: 24px 18px;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+}

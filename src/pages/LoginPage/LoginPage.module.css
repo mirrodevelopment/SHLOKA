@@ -1,0 +1,645 @@
+/* ============================================================
+   SHLOKA LUXURY BOUTIQUE AUTHENTICATION MODAL
+   Faithful to Architectural Haveli Royal Indian Aesthetic (Image 2)
+   ============================================================ */
+
+/* ── MODAL BACKDROP ── */
+.authModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 2.5vw, 32px);
+  box-sizing: border-box;
+  animation: backdropFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.authModalOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(30, 22, 16, 0.72) 0%, rgba(14, 9, 6, 0.92) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ── MAIN ARCHITECTURAL HAVELI CONTAINER CARD (Image 2) ── */
+.authCard {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1060px;
+  min-height: 640px;
+  max-height: 94vh;
+  background: #FCFAF6;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 182, 122, 0.55);
+  box-shadow: 0 30px 85px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  overflow: hidden;
+  animation: cardEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── CLOSE BUTTON (TOP RIGHT) ── */
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 127, 58, 0.4);
+  background: rgba(252, 250, 246, 0.88);
+  color: #4A3E30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.closeBtn:hover {
+  background: #5A0A17;
+  color: #FFFFFF;
+  border-color: #5A0A17;
+  transform: rotate(90deg) scale(1.06);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LEFT SIDE — FULL-BLEED TEMPLE & SAREE SCENE (55%)
+   ═══════════════════════════════════════════════════════════════ */
+.visualPanel {
+  position: relative;
+  background: #EDE6DC;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 3.2vw, 38px);
+  box-sizing: border-box;
+}
+
+.visualBgWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.visualBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  filter: contrast(1.04) saturate(1.05) brightness(0.98);
+  transition: transform 12s ease-out;
+}
+
+.authCard:hover .visualBgImage {
+  transform: scale(1.025);
+}
+
+/* Top Left Woven Heritage Typography Stack (Image 2) */
+.leftEyebrowGroup {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.leftEyebrowLine {
+  margin: 0;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(14px, 1.45vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #2E241C;
+  line-height: 1.35;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.leftLotusEmblem {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RIGHT SIDE — ARCHED HAVELI ROYAL LOGIN FORM PANEL (45%)
+   ═══════════════════════════════════════════════════════════ */
+.formPanel {
+  position: relative;
+  background: #FCFAF6;
+  border-top-left-radius: clamp(90px, 12vw, 150px);
+  box-shadow: -16px 0 36px rgba(42, 28, 14, 0.07);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 3.2vw, 42px) clamp(22px, 3vw, 40px);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Subtle Botanical Tree Branch Framing Background */
+.bgBotanicalLeaf {
+  position: absolute;
+  top: -15px;
+  right: -25px;
+  width: clamp(180px, 20vw, 260px);
+  height: auto;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 1;
+  filter: sepia(0.3) saturate(1.2);
+}
+
+.formInnerContainer {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── BRAND HEADER ── */
+.brandHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(18px, 2.5vh, 26px);
+}
+
+.brandLotus {
+  margin-bottom: 4px;
+  opacity: 0.92;
+}
+
+.brandTitle {
+  margin: 0;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(34px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #5A0A17; /* Royal Crimson */
+  line-height: 1.1;
+}
+
+/* Diamond Hairline Divider */
+.brandDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 120px;
+  margin: 6px auto 14px;
+}
+
+.bdLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8A97E, transparent);
+}
+
+.bdDot {
+  font-size: 8px;
+  color: #A07F3A;
+}
+
+.welcomeHeading {
+  margin: 0 0 4px;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(19px, 2.2vw, 23px);
+  font-weight: 500;
+  color: #221A14;
+  letter-spacing: 0.01em;
+}
+
+.welcomeSub {
+  margin: 0;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  font-size: clamp(13px, 1.2vw, 14.5px);
+  color: #7A6855;
+  line-height: 1.4;
+}
+
+/* ── STATUS ALERTS ── */
+.feedbackSuccess {
+  background: rgba(46, 125, 50, 0.08);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  color: #2E7D32;
+  font-size: 12.5px;
+  font-family: var(--sans, "Inter", sans-serif);
+  text-align: center;
+}
+
+.feedbackError {
+  background: rgba(186, 26, 26, 0.08);
+  border: 1px solid rgba(186, 26, 26, 0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  color: #8A1528;
+  font-size: 12.5px;
+  font-family: var(--sans, "Inter", sans-serif);
+  text-align: center;
+}
+
+/* ── AUTH FORM ── */
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vh, 18px);
+  width: 100%;
+}
+
+.inputFieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.inputLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #4A3E30;
+  text-transform: uppercase;
+}
+
+.passwordLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.showPasswordBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #5A0A17;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.showPasswordBtn:hover {
+  opacity: 0.75;
+}
+
+.inputControlWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputLeadingIcon {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.royalInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #D6C8B5;
+  border-radius: 0;
+  padding: 9px 4px 9px 28px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13.5px;
+  color: #261D17;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.royalInput::placeholder {
+  color: #9C8C7A;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.royalInput:focus {
+  border-bottom-color: #5A0A17;
+  box-shadow: 0 1px 0 #5A0A17;
+}
+
+/* ── PRIMARY ROYAL SUBMIT BUTTON (Deep Crimson / Maroon Pill) ── */
+.royalSubmitBtn {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #630C19 0%, #470812 100%);
+  border: 1px solid #C8A97E;
+  border-radius: 6px;
+  padding: 12.5px 18px;
+  color: #FAF6EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(90, 10, 23, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 4px;
+}
+
+.royalSubmitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #780E20 0%, #540A16 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 7px 22px rgba(90, 10, 23, 0.32);
+  border-color: #E2CA9B;
+}
+
+.royalSubmitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btnDiamond {
+  font-size: 9px;
+  color: #D4B67A;
+  opacity: 0.85;
+}
+
+.btnText {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ── OR DIVIDER ── */
+.orDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 2px 0;
+}
+
+.orLine {
+  flex: 1;
+  height: 1px;
+  background: #E8DDCE;
+}
+
+.orText {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  color: #8C7A68;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ── GOOGLE BUTTON ── */
+.googleBtn {
+  width: 100%;
+  background: #FAF7F2;
+  border: 1px solid #D6C8B5;
+  border-radius: 6px;
+  padding: 10px 18px;
+  color: #362A1F;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.googleBtn:hover:not(:disabled) {
+  background: #F4EDE2;
+  border-color: #A07F3A;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.googleIcon {
+  flex-shrink: 0;
+}
+
+/* ── SECONDARY LINKS ── */
+.bottomNavGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.switchModeLine {
+  margin: 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  color: #5C4D3E;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5A0A17;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.linkButton:hover {
+  opacity: 0.8;
+}
+
+.forgotPasswordLink {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12px;
+  color: #5A0A17;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.forgotPasswordLink:hover {
+  opacity: 0.8;
+}
+
+/* ── SIGNED IN VIEW ── */
+.signedInView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.patronAvatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #5A0A17;
+  color: #FAF6EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 20px;
+  border: 2px solid #D4B67A;
+}
+
+.patronName {
+  margin: 0;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 22px;
+  color: #261D17;
+}
+
+.patronEmail {
+  margin: 0;
+  font-size: 13px;
+  color: #7A6855;
+  font-family: var(--sans, "Inter", sans-serif);
+}
+
+.patronPerkBadge {
+  background: rgba(212, 182, 122, 0.15);
+  border: 1px solid #D4B67A;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 11.5px;
+  color: #5A0A17;
+  font-weight: 600;
+  font-family: var(--sans, "Inter", sans-serif);
+}
+
+.signedInActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.signOutLink {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #8A1528;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: var(--sans, "Inter", sans-serif);
+}
+
+/* ── FOOTER MOTTO (Image 2) ── */
+.brandFooterMotto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: clamp(20px, 3vh, 32px);
+  text-align: center;
+  gap: 6px;
+}
+
+.footerLotusWrap {
+  opacity: 0.85;
+}
+
+.mottoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mottoDiamond {
+  font-size: 10px;
+  color: #A07F3A;
+}
+
+.mottoText {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  font-size: clamp(12.5px, 1.2vw, 14px);
+  color: #7A6855;
+  letter-spacing: 0.02em;
+}
+
+/* ── RESPONSIVE STYLING ── */
+@media (max-width: 900px) {
+  .authCard {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+    min-height: auto;
+    overflow-y: auto;
+  }
+
+  .visualPanel {
+    min-height: 240px;
+    padding: 20px;
+  }
+
+  .formPanel {
+    border-top-left-radius: 0;
+    padding: 24px 20px;
+    box-shadow: none;
+  }
+}

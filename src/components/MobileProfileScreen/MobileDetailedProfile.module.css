@@ -1,0 +1,506 @@
+/* ============================================================
+   SHLOKA — Luxury Detailed Profile Screen Styles (Mobile Only)
+   Matches Reference Image 2
+   ============================================================ */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: #FCFAF6;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── 1. Top Header ── */
+.topHeader {
+  height: 56px;
+  background-color: #FCFAF6;
+  border-bottom: 1px solid rgba(216, 197, 169, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.backBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.backBtn:active {
+  transform: scale(0.92);
+  background-color: rgba(123, 28, 42, 0.06);
+}
+
+.headerTitle {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #7B1C2A;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.headerBrand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.headerBrandText {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #A07F3A;
+  line-height: 1;
+}
+
+/* ── Scroll Body ── */
+.scrollBody {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 16px calc(90px + env(safe-area-inset-bottom, 0px)) 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* ── 2. Hero Section ── */
+.heroSection {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0 10px 0;
+  box-sizing: border-box;
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatarCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FCFAF6;
+  border: 1.5px solid #D4B67A;
+  box-shadow: 0 4px 14px rgba(123, 28, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cameraBadge {
+  position: absolute;
+  bottom: 0;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #7B1C2A;
+  border: 1.5px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.cameraBadge:active {
+  transform: scale(0.9);
+}
+
+.patronMetaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.patronName {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: #7B1C2A;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.patronEmail {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 13.5px;
+  font-style: italic;
+  color: #8C7862;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.rewardsPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FAF6F0;
+  border: 1px solid rgba(216, 197, 169, 0.8);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #7B1C2A;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.15s ease;
+}
+
+.rewardsPill:active {
+  background-color: #F4EFE6;
+}
+
+.pointsCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  padding-right: 14px;
+}
+
+.pointsNumber {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: #7B1C2A;
+  line-height: 1;
+}
+
+.pointsLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #8C7862;
+}
+
+.pointsChevron {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #A07F3A;
+  line-height: 1;
+}
+
+/* ── 3. Section Blocks & Dividers ── */
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.sectionTitle {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #7B1C2A;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sectionLine {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(216, 197, 169, 0.45);
+}
+
+/* ── 4. Fields List & Cards ── */
+.fieldsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 197, 169, 0.55);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.fieldCard:focus-within {
+  border-color: #7B1C2A;
+  box-shadow: 0 0 0 1px rgba(123, 28, 42, 0.2);
+}
+
+.fieldContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  color: #8C7862;
+  letter-spacing: 0.02em;
+}
+
+.fieldValue {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #221C16;
+  line-height: 1.2;
+}
+
+.fieldInput {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #221C16;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.fieldSelect {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #221C16;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.editIconBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  color: #A07F3A;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.editIconBtn:active {
+  transform: scale(0.88);
+  background-color: rgba(123, 28, 42, 0.05);
+}
+
+/* ── 5. Address Book Card ── */
+.addressManageCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 197, 169, 0.55);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.addressManageCard:active {
+  transform: scale(0.99);
+  background-color: #FAF6F0;
+}
+
+.addressIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(123, 28, 42, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.addressMetaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.addressManageTitle {
+  font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #221C16;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.addressManageDesc {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  color: #7A6855;
+  margin: 0;
+}
+
+.addressManageChevron {
+  font-size: 20px;
+  color: #A07F3A;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ── 6. Sticky Save Button ── */
+.saveBtnContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(252, 250, 246, 0) 0%, rgba(252, 250, 246, 0.95) 20%, #FCFAF6 100%);
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px)) 16px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.saveChangesBtn {
+  width: 100%;
+  height: 48px;
+  background: #7B1C2A;
+  color: #FFFFFF;
+  border: 1px solid #D4B67A;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(123, 28, 42, 0.3);
+  transition: transform 0.15s ease, background-color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.saveChangesBtn:active {
+  transform: scale(0.98);
+}
+
+.saveChangesBtnSuccess {
+  background: #2E7D32;
+  border-color: #81C784;
+}
+
+/* ── 7. Toast Notification ── */
+.toast {
+  position: fixed;
+  bottom: calc(75px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  background: #221C16;
+  color: #FAF6F0;
+  padding: 10px 18px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  animation: toastFade 0.25s ease-out;
+  white-space: nowrap;
+}
+
+@keyframes toastFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

@@ -1,0 +1,549 @@
+/* ═════════════════════════════════════════════════════════════════
+   MOBILE HAMBURGER DRAWER (Luxury Indian Saree Boutique)
+   Strictly scoped for mobile devices <= 768px
+   ═════════════════════════════════════════════════════════════════ */
+
+/* ── BACKDROP ── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 15, 10, 0.42);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 99999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  animation: fadeIn 350ms ease forwards;
+  overscroll-behavior: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── DRAWER CONTAINER ── */
+.drawer {
+  position: relative;
+  width: clamp(310px, 91vw, 410px);
+  height: 100dvh;
+  max-height: 100dvh;
+  background-color: #FAF7F2;
+  box-shadow: 10px 0 36px rgba(28, 20, 12, 0.24);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideInLeft 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ── TOP-RIGHT DRAPED SILK SAREE (Background Decorative Element) ── */
+.topSareeDeco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(140px, 42vw, 175px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── BOTTOM-RIGHT BOTANICAL LOTUS ARTWORK (Background Decorative Element) ── */
+.bottomLotusDeco {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(180px, 50vw, 245px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.88;
+  object-fit: contain;
+  display: block;
+  transform: translate(14%, 12%);
+}
+
+/* ── SCROLLABLE DRAWER INNER WRAPPER ── */
+.scrollContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 137, 62, 0.4) rgba(250, 247, 242, 0.6);
+}
+
+.scrollContainer::-webkit-scrollbar {
+  width: 5px;
+  display: block;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: rgba(250, 247, 242, 0.6);
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(184, 137, 62, 0.4);
+  border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(184, 137, 62, 0.7);
+}
+
+/* ── 1. HEADER (Sticky top bar with Shloka branding & close icon) ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px;
+  min-height: 56px;
+  max-height: 60px;
+  border-bottom: 1px solid rgba(184, 137, 62, 0.18);
+  background: rgba(250, 247, 242, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  overflow: hidden;
+}
+
+.lotusIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.drawerBrandLogo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  margin-top: -2px;
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #29231F;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+}
+
+.closeBtn:active {
+  transform: scale(0.92);
+  background-color: rgba(184, 137, 62, 0.1);
+}
+
+/* ── 2. NAVIGATION BLOCK ── */
+.navBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordionGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(184, 137, 62, 0.15);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.navRow:active {
+  background-color: rgba(184, 137, 62, 0.06);
+}
+
+.rowLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rowIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  stroke: #B8893E;
+  display: block;
+}
+
+.rowLotusIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowLabel {
+  font-family: var(--sans, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #29231F;
+  text-transform: uppercase;
+}
+
+.newBadge {
+  background-color: #8E2430;
+  color: #FAF7F2;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.chevron {
+  font-size: 15px;
+  color: #7A6855;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-block;
+  user-select: none;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ── COLLECTIONS ACCORDION CONTENT ── */
+.collectionsAccordionContent {
+  width: 100%;
+  background: rgba(253, 251, 248, 0.65);
+  border-bottom: 1px solid rgba(184, 137, 62, 0.15);
+  animation: expandFade 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes expandFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.collectionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 16px;
+  padding: 6px 24px 16px 24px;
+}
+
+@media (max-width: 350px) {
+  .collectionsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.colColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.colBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9.5px 0;
+  border: none;
+  border-bottom: 1px solid rgba(184, 137, 62, 0.12);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.colBtn:active {
+  transform: translateX(3px);
+  opacity: 0.75;
+}
+
+.colMotif {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  stroke: #B8893E;
+  opacity: 0.95;
+}
+
+.colText {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #29231F;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ── SUB-ACCORDION CONTENT (Shopping categories) ── */
+.subAccordionContent {
+  width: 100%;
+  background: rgba(253, 251, 248, 0.6);
+  border-bottom: 1px solid rgba(184, 137, 62, 0.15);
+  padding: 12px 24px 16px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: expandFade 260ms ease forwards;
+}
+
+.nestedCatGroup {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(184, 137, 62, 0.1);
+  padding-bottom: 4px;
+}
+
+.nestedCatRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.nestedCatName {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #4A3C31;
+  text-transform: uppercase;
+}
+
+.subChevron {
+  font-size: 14px;
+  color: #A08764;
+  transition: transform 0.2s ease;
+}
+
+.subChevronOpen {
+  transform: rotate(90deg);
+}
+
+.nestedItemsList {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0 8px 12px;
+  gap: 6px;
+}
+
+.nestedLeafBtn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  color: #6B5541;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.nestedLeafBtn:active {
+  color: #B8893E;
+}
+
+/* ── FABRICS GRID ── */
+.fabricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.fabricPill {
+  padding: 7px 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(184, 137, 62, 0.2);
+  border-radius: 4px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #4A3C31;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.fabricPill:active {
+  background: #FAF7F2;
+  border-color: #B8893E;
+  color: #B8893E;
+}
+
+/* ── SIMPLE SUB LIST ── */
+.simpleSubList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.simpleSubItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid rgba(184, 137, 62, 0.1);
+  background: transparent;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #4A3C31;
+  cursor: pointer;
+  text-align: left;
+}
+
+.simpleSubItem:active {
+  color: #B8893E;
+}
+
+.subArrow {
+  font-size: 12px;
+  color: #B8893E;
+}
+
+/* ── 3. LUXURY BRAND FOOTER BLOCK ── */
+.drawerFooter {
+  margin-top: auto;
+  padding: 34px 24px calc(28px + env(safe-area-inset-bottom, 0px)) 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.footerTagline {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #8C7862;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footerDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 160px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(184, 137, 62, 0.35);
+}
+
+.dividerDiamond {
+  color: #B8893E;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 137, 62, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B5541;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.socialBtn:active {
+  transform: scale(0.92);
+  border-color: #B8893E;
+  color: #B8893E;
+}

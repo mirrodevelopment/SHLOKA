@@ -1,0 +1,643 @@
+.section {
+  position: relative;
+  background-color: #FCFAF6;
+  color: var(--ink, #17130F);
+  width: 100%;
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(60px, 8vh, 100px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1560px;
+  width: 95vw;
+  margin: 0 auto;
+  padding-left: clamp(12px, 2vw, 32px);
+  padding-right: clamp(12px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ── HEADER BLOCK ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(90px, 12vh, 150px);
+}
+
+/* ── THE JOURNAL ARTWORK BANNER ── */
+.journalArtwork {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: clamp(14px, 2vh, 28px);
+}
+
+.journalArtworkImg {
+  width: 100%;
+  max-width: clamp(420px, 52vw, 760px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.96;
+  filter: contrast(1.03) saturate(1.05);
+  display: block;
+}
+
+.topLotus {
+  color: #A98455;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.eyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 36px);
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(36px, 4.5vw, 76px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  line-height: 1.05;
+  color: #8A1528;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  white-space: nowrap;
+}
+
+.word {
+  display: inline-block;
+}
+
+.diamondDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.divDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+.subtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(15px, 1.3vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  color: #8C6A3D;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 0;
+}
+
+/* ── ASYMMETRIC JOURNAL GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: clamp(16px, 2vw, 28px);
+  width: 100%;
+  margin-bottom: clamp(24px, 4vh, 48px);
+}
+
+/* ── LEFT LARGE HERO FEATURE CARD ── */
+.heroCard {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 56vh, 620px);
+  overflow: hidden;
+  background-color: #1A1410;
+  display: flex;
+  align-items: center;
+}
+
+.heroImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.heroCard:hover .heroImage {
+  transform: scale(1.04);
+}
+
+.darkGradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(15, 11, 8, 0.88) 0%, rgba(15, 11, 8, 0.6) 45%, rgba(15, 11, 8, 0.15) 100%);
+  pointer-events: none;
+}
+
+.heroOverlayContent {
+  position: relative;
+  z-index: 2;
+  padding: clamp(24px, 4vw, 52px);
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #FFFFFF;
+}
+
+.heroCategory {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #D4B67A;
+  margin-bottom: 8px;
+}
+
+.categoryLine {
+  width: 36px;
+  height: 1px;
+  background-color: #D4B67A;
+  opacity: 0.65;
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(28px, 2.8vw, 44px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+
+.heroSubtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 28px 0;
+}
+
+.readLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #D4B67A;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.readLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #D4B67A;
+  transform: scaleX(0.7);
+  transition: transform 0.3s ease;
+}
+
+.readLink:hover::after {
+  transform: scaleX(1);
+}
+
+.arrow {
+  font-family: monospace;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.readLink:hover .arrow,
+.readLinkDark:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ── RIGHT COLUMN (2 STACKED CARDS) ── */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 28px);
+  height: clamp(420px, 56vh, 620px);
+}
+
+.splitCard {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background-color: #FAF6F0;
+  overflow: hidden;
+  border: 1px solid rgba(201, 179, 141, 0.25);
+  transition: box-shadow 0.4s ease;
+}
+
+.splitCard:hover {
+  box-shadow: 0 8px 24px rgba(160, 127, 58, 0.12);
+}
+
+.cardTextContent {
+  padding: clamp(24px, 3.2vw, 44px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #FAF6F0;
+  box-sizing: border-box;
+}
+
+.cardCategory {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: clamp(10px, 1.4vh, 16px);
+  text-align: center;
+}
+
+.cardTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  color: #1E1813;
+  text-align: center;
+  margin: 0 0 clamp(8px, 1.2vh, 14px) 0;
+}
+
+.cardSubtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(14px, 1.15vw, 17.5px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #73614E;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0 0 clamp(16px, 2vh, 24px) 0;
+}
+
+.readLinkDark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8C7355;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.readLinkDark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #C9B38D;
+  transform: scaleX(0.7);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.readLinkDark:hover {
+  color: #A07F3A;
+}
+
+.readLinkDark:hover::after {
+  transform: scaleX(1);
+  background-color: #A07F3A;
+}
+
+.cardImageWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardImageWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #FAF6F0 0%, rgba(250, 246, 240, 0.6) 6%, rgba(250, 246, 240, 0) 22%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 4%, #000 16%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 4%, #000 16%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.splitCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* ── FOOTER VIEW ALL STORIES CTA (3D METALLIC GOLD FOIL TEXTURE BUTTON) ── */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottomLotus {
+  color: #A98455;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+/* ── FOOTER VIEW ALL STORIES IMAGE BUTTON WITH HOVER STATE ── */
+.viewAllBtnLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+  height: clamp(80px, 10.5vh, 120px);
+  max-width: clamp(360px, 42vw, 520px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  margin-top: 6px;
+}
+
+.viewAllBtnLink:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 6px 20px rgba(160, 127, 58, 0.28));
+}
+
+.viewAllBtnDefault,
+.viewAllBtnHover {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.35s ease;
+}
+
+.viewAllBtnDefault {
+  opacity: 1;
+}
+
+.viewAllBtnHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.viewAllBtnLink:hover .viewAllBtnDefault {
+  opacity: 0;
+}
+
+.viewAllBtnLink:hover .viewAllBtnHover {
+  opacity: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 100%;
+    gap: 24px;
+  }
+
+  .rightColumn {
+    height: auto;
+    gap: 20px;
+  }
+
+  .splitCard {
+    grid-template-columns: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cardImageWrapper {
+    height: 240px;
+  }
+
+  .title {
+    white-space: nowrap;
+    font-size: clamp(18px, 4.8vw, 32px);
+    letter-spacing: clamp(0.16em, 2.8vw, 0.42em);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    white-space: nowrap;
+    font-size: clamp(15px, 4.5vw, 22px);
+    letter-spacing: clamp(0.12em, 2.2vw, 0.26em);
+  }
+
+  .eyebrow {
+    letter-spacing: 0.28em;
+    font-size: 9px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ── MOBILE HORIZONTAL CAROUSEL (max-width: 768px) ── */
+@media (max-width: 768px) {
+  .grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 16px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rightColumn {
+    display: contents !important;
+  }
+
+  .heroCard {
+    flex: 0 0 clamp(270px, 78vw, 320px) !important;
+    max-width: 80vw !important;
+    height: clamp(380px, 50vh, 440px) !important;
+    scroll-snap-align: start !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(201, 179, 141, 0.45) !important;
+    box-shadow: 0 4px 14px rgba(160, 127, 58, 0.06) !important;
+  }
+
+  .heroOverlayContent {
+    padding: 24px 20px !important;
+    justify-content: flex-end !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .heroTitle {
+    font-size: clamp(22px, 5vw, 26px) !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2 !important;
+  }
+
+  .heroSubtitle {
+    font-size: 14px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .darkGradientOverlay {
+    background: linear-gradient(to top, rgba(15, 11, 8, 0.95) 0%, rgba(15, 11, 8, 0.5) 60%, rgba(15, 11, 8, 0.2) 100%) !important;
+  }
+
+  .splitCard {
+    flex: 0 0 clamp(270px, 78vw, 320px) !important;
+    max-width: 80vw !important;
+    height: clamp(380px, 50vh, 440px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    scroll-snap-align: start !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(201, 179, 141, 0.45) !important;
+    box-shadow: 0 4px 14px rgba(160, 127, 58, 0.06) !important;
+    background-color: #FAF6F0 !important;
+  }
+
+  .cardTextContent {
+    flex: 1 !important;
+    padding: 24px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #FAF6F0 !important;
+  }
+
+  .cardTitle {
+    font-size: clamp(20px, 4.5vw, 24px) !important;
+    margin-bottom: 6px !important;
+    line-height: 1.2 !important;
+  }
+
+  .cardSubtitle {
+    font-size: 13.5px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .cardImageWrapper {
+    height: 180px !important;
+    width: 100% !important;
+    position: relative !important;
+    order: 2 !important;
+  }
+
+  .cardImage {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  .cardImageWrapper::before {
+    background: linear-gradient(to bottom, #FAF6F0 0%, rgba(250, 246, 240, 0) 12%) !important;
+  }
+}

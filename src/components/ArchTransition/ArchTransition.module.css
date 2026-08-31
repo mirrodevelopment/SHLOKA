@@ -1,0 +1,35 @@
+.transition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  opacity: 0.35;
+}
+
+.arch {
+  width: 120px;
+  height: 72px;
+  color: var(--gold);
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -4px;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: var(--sandstone);
+  opacity: 0.3;
+}

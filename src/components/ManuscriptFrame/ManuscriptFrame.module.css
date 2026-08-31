@@ -1,0 +1,48 @@
+.frame {
+  position: fixed;
+  inset: 10px;
+  border: 1px solid var(--sandstone);
+  opacity: 0.4;
+  z-index: 8;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.frame:hover {
+  opacity: 0.6;
+}
+
+/* ── Corners ── */
+.corner {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0.55;
+}
+
+.topLeft {
+  top: -1px;
+  left: -1px;
+}
+
+.topRight {
+  top: -1px;
+  right: -1px;
+  transform: scaleX(1);
+}
+
+.bottomLeft {
+  bottom: -1px;
+  left: -1px;
+}
+
+.bottomRight {
+  bottom: -1px;
+  right: -1px;
+}
+
+@media (max-width: 768px) {
+  .frame {
+    inset: 6px;
+    opacity: 0.25;
+  }
+}

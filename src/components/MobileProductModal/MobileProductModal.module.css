@@ -1,0 +1,955 @@
+/* ============================================================
+   SHLOKA — Mobile Product Detail Page (PDP)
+   Strictly Scoped to Mobile (<= 768px)
+   Matches the Luxury Padma Product Design from 2nd Reference Image
+   ============================================================ */
+
+.pageScreen {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pageScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: #FCFAF6;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: pageSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  @keyframes pageSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ── 1. Top Header Bar ── */
+  .topHeader {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: #FCFAF6;
+    border-bottom: 1px solid rgba(216, 197, 169, 0.35);
+    flex-shrink: 0;
+    z-index: 20;
+  }
+
+  .iconBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #26201B;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+  }
+
+  .iconBtn:active {
+    transform: scale(0.92);
+  }
+
+  .headerBrand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 44px;
+    width: clamp(105px, 29vw, 135px);
+    overflow: hidden;
+  }
+
+  .headerBrandLogo {
+    height: 105px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: -2px;
+  }
+
+  .headerRightActions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bagIconWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cartBadge {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    background-color: #741926;
+    color: #FCFAF6;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 8px;
+    font-weight: 700;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Scrollable Body ── */
+  .scrollContent {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 74px;
+  }
+
+  /* ── 2. Main Hero Gallery with Vertical Pagination ── */
+  .galleryHeroSection {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 4.9;
+    overflow: hidden;
+    background-color: #F2ECE1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .verticalPagination {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(252, 250, 246, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 6px 4px;
+    border-radius: 14px;
+  }
+
+  .pageNumber {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 8.5px;
+    font-weight: 600;
+    color: #4A3C2F;
+    opacity: 0.85;
+  }
+
+  .dotTrack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pageDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #C8AD88;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pageDotActive {
+    background-color: #741926;
+    transform: scale(1.4);
+  }
+
+  .heroImageFrame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heroImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    animation: imageFade 0.35s ease-out;
+  }
+
+  @keyframes imageFade {
+    from {
+      opacity: 0.85;
+      transform: scale(1.01);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* ── 3. Title, Subtitle, Price & Top "ADD TO BAG" ── */
+  .productMainRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px 14px 18px;
+  }
+
+  .titlePriceCol {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productName {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #741926;
+    margin: 0 0 2px 0;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .productSubtitle {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: 13px;
+    color: #8C7862;
+    margin: 0 0 6px 0;
+    line-height: 1.25;
+  }
+
+  .productPrice {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: #26201B;
+    margin: 0;
+  }
+
+  .topAddBagImgBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    line-height: 0;
+  }
+
+  .topAddBagImgBtn:active {
+    transform: scale(0.96);
+    filter: brightness(0.94);
+  }
+
+  .topBtnPatchImg {
+    width: clamp(118px, 32vw, 138px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
+  }
+
+  /* ── 4. "THE WEAVE" Craft Heritage Section ── */
+  .theWeaveSection {
+    border-top: 1px solid #ECE2D4;
+    padding: 16px 18px;
+    background-color: #FCFAF6;
+  }
+
+  .weaveContainer {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .weaveArchCol {
+    width: 44%;
+    max-width: 165px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weaveArchImg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .weaveDetailsCol {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .weaveHeaderRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px 0;
+    transition: opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .weaveHeaderRow:hover .weaveTitle {
+    color: #8A1528;
+  }
+
+  .weaveTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .weaveLotus {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+  }
+
+  .weaveTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #5C4A38;
+    margin: 0;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .weaveChevronBtn {
+    background: transparent;
+    border: none;
+    padding: 4px 6px;
+    margin: -4px -6px -4px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .weaveChevronBtn:hover {
+    transform: translateX(3px);
+    background-color: rgba(169, 132, 85, 0.12);
+  }
+
+  .weaveChevronBtn:active {
+    transform: scale(0.92);
+  }
+
+  .weaveChevron {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    color: #8C7862;
+    transition: color 0.2s ease;
+    display: inline-block;
+  }
+
+  .weaveChevronBtn:hover .weaveChevron,
+  .weaveHeaderRow:hover .weaveChevron {
+    color: #8A1528;
+  }
+
+  .weaveDescription {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #7A6855;
+    margin: 0 0 10px 0;
+  }
+
+  .specsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .specRow {
+    display: flex;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .specLabel {
+    width: 58px;
+    font-weight: 700;
+    color: #8C7862;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .specValue {
+    flex: 1;
+    font-weight: 500;
+    color: #3A2F25;
+  }
+
+  /* ── 5. Heritage Story Banner ("Every thread carries a story.") ── */
+  .storyBannerSection {
+    padding: 8px 16px 14px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .storyBannerContainer {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    line-height: 0;
+  }
+
+  .storyBannerImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .storyContentOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 6px 0 10px;
+    z-index: 2;
+    box-sizing: border-box;
+  }
+
+  .storyTitle {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: clamp(12px, 3.3vw, 15px);
+    font-weight: 400;
+    color: #FAF8F5;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  }
+
+  .storyDividerLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 4px 0 6px 0;
+    width: 38px;
+  }
+
+  .dividerBar {
+    height: 1px;
+    flex: 1;
+    background-color: rgba(220, 196, 160, 0.65);
+  }
+
+  .dividerStar {
+    font-size: 7.5px;
+    color: #DCC4A0;
+    line-height: 1;
+  }
+
+  .discoverImgBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    line-height: 0;
+  }
+
+  .discoverImgBtn:active {
+    transform: scale(0.96);
+    filter: brightness(0.94);
+  }
+
+  .discoverBtnPatchImg {
+    width: clamp(74px, 20vw, 88px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
+  }
+
+  /* ── 6. "COMPLETE THE LOOK" Section ── */
+  .completeLookSection {
+    padding: 12px 16px 14px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .sectionTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #5C4A38;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .viewAllLink {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #8C7862;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .carouselWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .carouselArrowBtn {
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ECE2D4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A3C2F;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .carouselArrowBtn:active {
+    transform: translateY(-50%) scale(0.92);
+    background-color: #F5EDE0;
+  }
+
+  .carouselArrowLeft {
+    left: -7px;
+  }
+
+  .carouselArrowRight {
+    right: -7px;
+  }
+
+  .accessoriesRow {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 2px 8px 2px;
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  .accessoriesRow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .accessoryCard {
+    flex: 0 0 clamp(135px, 41vw, 155px);
+    scroll-snap-align: start;
+    background-color: #FFFFFF;
+    border: 1px solid #ECE3D6;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .accessoryCard:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .accessoryMedia {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #F0EAE1;
+    overflow: hidden;
+  }
+
+  .accessoryImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .accessoryCard:active .accessoryImg {
+    transform: scale(1.03);
+  }
+
+  .accessoryInfo {
+    padding: 9px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accessoryName {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #741926;
+    margin: 0 0 1px 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .accessorySubtitle {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: 11px;
+    color: #8C7862;
+    margin: 0 0 7px 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .accessoryBottomRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .accessoryPrice {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: #26201B;
+    line-height: 1;
+  }
+
+  .plusPatchBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+    line-height: 0;
+  }
+
+  .plusPatchBtn:active {
+    transform: scale(0.9);
+  }
+
+  .plusPatchImg {
+    width: 25px;
+    height: 25px;
+    display: block;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.12));
+  }
+
+  /* ── 7. "YOU MAY ALSO LOVE" Section ── */
+  .youMayLoveSection {
+    padding: 6px 16px 16px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .relatedRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .relatedCard {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 3 / 4.2;
+    position: relative;
+    background-color: #F0EAE1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .relatedMedia {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .relatedImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .relatedWishBtn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+  }
+
+  .bottomSpacer {
+    height: 24px;
+  }
+
+  /* ── 8. Fixed Bottom Sticky Action Bar ── */
+  .stickyFooterBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #FCFAF6;
+    border-top: 1px solid #ECE2D4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px calc(env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+  }
+
+  .stickyPriceCol {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stickyPriceLabel {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #8C7862;
+    text-transform: uppercase;
+  }
+
+  .stickyPriceValue {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: #26201B;
+    line-height: 1.1;
+  }
+
+  .stickyAddBagImgBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    line-height: 0;
+  }
+
+  .stickyAddBagImgBtn:active {
+    transform: scale(0.96);
+    filter: brightness(0.94);
+  }
+
+  .stickyBtnPatchImg {
+    width: clamp(126px, 34vw, 146px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+  }
+
+  /* ── Story Modal Backdrop ── */
+  .storyModalBackdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(20, 15, 10, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .storyModalCard {
+    width: 100%;
+    max-width: 340px;
+    background-color: #FCFAF6;
+    border-radius: 16px;
+    padding: 22px 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+
+  .storyCloseBtn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #7A6855;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .modalStoryTitle {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-size: 20px;
+    color: #741926;
+    margin: 0 0 10px 0;
+  }
+
+  .modalStoryText {
+    font-family: var(--serif, "Cormorant Garamond", serif);
+    font-style: italic;
+    font-size: 13.5px;
+    line-height: 1.45;
+    color: #5C4A38;
+    margin: 0 0 16px 0;
+  }
+
+  .modalCert {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9.5px;
+    font-weight: 600;
+    color: #8C7862;
+    border-top: 1px solid #ECE2D4;
+    padding-top: 10px;
+  }
+
+  /* ── Live Toast Notification ── */
+  .toastNotification {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #231B15;
+    color: #FCFAF6;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    animation: toastFade 0.25s ease-out;
+  }
+
+  .toastDot {
+    color: #A07F3A;
+    font-size: 8px;
+  }
+
+  @keyframes toastFade {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+}

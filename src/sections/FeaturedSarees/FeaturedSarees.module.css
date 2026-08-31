@@ -1,0 +1,329 @@
+.section {
+  position: relative;
+  background-color: #FCFAF6;
+  color: var(--ink, #17130F);
+  width: 100%;
+  padding-top: clamp(50px, 6vh, 80px);
+  padding-bottom: clamp(60px, 8vh, 100px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1560px;
+  width: 95vw;
+  margin: 0 auto;
+  padding-left: clamp(12px, 2vw, 32px);
+  padding-right: clamp(12px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ── SAREE ARTWORK HEADER BANNER ── */
+.sareeArtwork {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: clamp(16px, 2.5vh, 36px);
+}
+
+.sareeArtworkImg {
+  width: 100%;
+  max-width: clamp(220px, 40vw, 700px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.98;
+  filter: contrast(1.02) saturate(1.04);
+  display: block;
+}
+
+/* ── HEADER BLOCK ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(24px, 4vh, 48px);
+}
+
+.topLotus {
+  color: #A98455;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.eyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(36px, 4.5vw, 76px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  line-height: 1.05;
+  color: #8A1528;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.diamondDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.divDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+.subtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(15px, 1.3vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  color: #8C6A3D;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 0;
+}
+
+/* ── 3 FEATURED SAREES CARDS GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3.5vw, 52px);
+  width: 100%;
+  max-width: 1200px;
+  align-items: flex-start;
+  margin: 0 auto clamp(24px, 4vh, 48px) auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* ── ANIMATED METALLIC GOLD SHINING BORDER FRAME ── */
+.imageWrapper {
+  width: 100%;
+  height: clamp(440px, 58vh, 660px);
+  overflow: hidden;
+  position: relative;
+  background-color: #FAF6F0;
+  display: block;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  box-sizing: border-box;
+}
+
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.04);
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(12px, 1.8vh, 18px);
+  width: 100%;
+}
+
+.cardName {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(16px, 1.5vw, 22px);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: #1A1410;
+  text-transform: uppercase;
+  margin: 0 0 8px 0.22em;
+}
+
+.viewSareeBtnLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.viewSareeBtnLink:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.08) drop-shadow(0 4px 12px rgba(160, 127, 58, 0.25));
+}
+
+.viewSareeBtnImg {
+  width: auto;
+  height: clamp(56px, 7vh, 82px);
+  max-width: clamp(230px, 28vw, 340px);
+  object-fit: contain;
+  display: block;
+}
+
+/* ── FOOTER EXPLORE CTA (3D METALLIC GOLD FOIL TEXTURE BUTTON) ── */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottomLotus {
+  color: #A98455;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+/* ── FOOTER EXPLORE COLLECTION IMAGE BUTTON WITH HOVER STATE ── */
+.exploreBtnLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+  height: clamp(100px, 13vh, 150px);
+  max-width: clamp(440px, 48vw, 680px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  margin-top: 8px;
+}
+
+.exploreBtnLink:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 6px 20px rgba(160, 127, 58, 0.28));
+}
+
+.exploreBtnDefault,
+.exploreBtnHover {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.35s ease;
+}
+
+.exploreBtnDefault {
+  opacity: 1;
+}
+
+.exploreBtnHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.exploreBtnLink:hover .exploreBtnDefault {
+  opacity: 0;
+}
+
+.exploreBtnLink:hover .exploreBtnHover {
+  opacity: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .title {
+    white-space: nowrap;
+    font-size: clamp(20px, 5.2vw, 34px);
+    letter-spacing: clamp(0.18em, 3vw, 0.45em);
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Horizontal swipe carousel with 1.25-1.35 cards visible */
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    width: 100vw;
+    max-width: 100vw;
+    padding-left: max(5vw, 20px);
+    padding-right: max(5vw, 20px);
+    padding-bottom: 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 clamp(260px, 74vw, 320px);
+    max-width: 78vw;
+    scroll-snap-align: start;
+  }
+
+  .imageWrapper {
+    height: clamp(340px, 48vh, 440px);
+  }
+}

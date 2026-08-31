@@ -1,0 +1,661 @@
+.section {
+  position: relative;
+  background-color: #FCFAF6;
+  color: var(--ink, #17130F);
+  width: 100%;
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(48px, 6vh, 80px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1560px;
+  width: 95vw;
+  margin: 0 auto;
+  padding-left: clamp(12px, 2vw, 32px);
+  padding-right: clamp(12px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ── TOP HEADER BLOCK ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(28px, 4vh, 48px);
+}
+
+.topLotus {
+  color: #A98455;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.eyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 12px;
+}
+
+.quoteText {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(26px, 2.8vw, 42px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: #110E0B;
+  margin: 0 0 16px 0;
+}
+
+.diamondDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.divDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+/* ── CENTER MUGHAL ARCH PHOTOGRAPH FRAME (Footer-img.png) ── */
+.archFrameContainer {
+  width: 100%;
+  max-width: 1140px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: clamp(32px, 4.5vh, 56px);
+  display: flex;
+  justify-content: center;
+}
+
+.archImage {
+  width: 100%;
+  height: auto;
+  max-height: clamp(380px, 48vh, 560px);
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.archFrameContainer:hover .archImage {
+  transform: scale(1.02);
+}
+
+/* ── HORIZONTAL NAVIGATION BAR ── */
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.2vw, 36px);
+  margin-bottom: clamp(28px, 4vh, 48px);
+  flex-wrap: wrap;
+}
+
+.navBar a {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #241D17;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.navBar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #C9B38D;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navBar a:hover {
+  color: #A07F3A;
+}
+
+.navBar a:hover::after {
+  transform: scaleX(1);
+  background-color: #A07F3A;
+}
+
+.dot {
+  font-size: 8px;
+  color: #C9B38D;
+}
+
+/* ── BRAND SIGNATURE BLOCK ── */
+.brandSignature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(36px, 5vh, 64px);
+}
+
+.brandLotus {
+  color: #A98455;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.brandName {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  line-height: 1.1;
+  color: #8A1528;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.brandSubtitle {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #7A6956;
+  margin: 0;
+}
+
+/* ── BOTTOM FINE PRINT BAR ── */
+.bottomBar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(16px, 2.5vw, 36px);
+  align-items: flex-end;
+  border-top: 1px solid rgba(201, 179, 141, 0.35);
+  padding-top: clamp(16px, 2.2vh, 28px);
+}
+
+.barCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.barCategory {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.barLinks {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4A3E30;
+}
+
+.barLinks a {
+  color: #4A3E30;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.barLinks a:hover {
+  color: #A07F3A;
+}
+
+.bDot {
+  font-size: 7px;
+  color: #C9B38D;
+}
+
+.barColRight {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.copyrightGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cLotus {
+  color: #A98455;
+  opacity: 0.85;
+}
+
+.copyrightText {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #7A6956;
+}
+
+.desktopOnlyFooter {
+  display: block;
+  width: 100%;
+}
+
+.mobileOnlyFooter {
+  display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #FAF7F2;
+  }
+
+  .desktopOnlyFooter {
+    display: none !important;
+  }
+
+  .mobileOnlyFooter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FAF7F2;
+    border-top: 1px solid rgba(216, 197, 169, 0.4);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .mobileContainer {
+    width: 100%;
+    padding: 32px 18px 108px 18px; /* Clearance for fixed MobileBottomNav */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* 1. Brand Epilogue Header */
+  .mobileBrandHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  .mobileLotusIcon {
+    color: #A98455;
+    margin-bottom: 8px;
+    opacity: 0.9;
+  }
+
+  .mobileEpilogueEyebrow {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    color: #A98455;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .mobileBrandLogo {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(30px, 8vw, 38px);
+    font-weight: 500;
+    letter-spacing: 0.38em;
+    color: #7B1C2A;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+    line-height: 1.1;
+  }
+
+  .mobileBrandMotto {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #7A6855;
+    text-transform: uppercase;
+    margin: 0 0 12px 0;
+  }
+
+  .mobileEpilogueQuote {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #4A3E30;
+    margin: 0;
+    max-width: 290px;
+  }
+
+  /* 2. Main Divider */
+  .mobileMainDivider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+    margin: 16px 0 24px 0;
+  }
+
+  .divLine {
+    flex: 1;
+    height: 1px;
+    background-color: #C9B38D;
+    opacity: 0.55;
+  }
+
+  .divDot {
+    width: 4px;
+    height: 4px;
+    background-color: #A98455;
+    transform: rotate(45deg);
+    opacity: 0.75;
+  }
+
+  /* 3. Link columns grid */
+  .mobileLinksGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 16px;
+    width: 100%;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+  }
+
+  .mobileLinkColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .columnTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #7B1C2A;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .columnTitleDivider {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 32px;
+    margin: 6px 0 12px 0;
+  }
+
+  .columnTitleLine {
+    flex: 1;
+    height: 1px;
+    background-color: #7B1C2A;
+    opacity: 0.4;
+  }
+
+  .columnTitleDot {
+    width: 3px;
+    height: 3px;
+    background-color: #7B1C2A;
+    transform: rotate(45deg);
+    opacity: 0.8;
+  }
+
+  .columnLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .columnLink {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 11.5px;
+    color: #6B5843;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.3;
+    display: inline-block;
+  }
+
+  .columnLink:active {
+    color: #7B1C2A;
+  }
+
+  /* 4. Middle Quote Card */
+  .middleCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 16px 0 28px 0;
+    border-top: 1px solid rgba(201, 179, 141, 0.3);
+    padding-top: 28px;
+  }
+
+  .middleLotus {
+    color: #A98455;
+    margin-bottom: 12px;
+  }
+
+  .middleQuote {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #7B1C2A;
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+  }
+
+  .middleThankYou {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-style: italic;
+    font-size: 14px;
+    color: #6B5843;
+    margin: 0 0 20px 0;
+    max-width: 290px;
+    line-height: 1.45;
+  }
+
+  .socialRow {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socialCircle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 179, 141, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A98455;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: transparent;
+  }
+
+  .socialCircle:active {
+    background-color: #7B1C2A;
+    color: #FFFFFF;
+    border-color: #7B1C2A;
+  }
+
+  /* 5. Trust Badges Row */
+  .trustBadgesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+    width: 100%;
+    padding: 24px 0;
+    border-top: 1px solid rgba(201, 179, 141, 0.35);
+    border-bottom: 1px solid rgba(201, 179, 141, 0.35);
+    margin-bottom: 24px;
+  }
+
+  .trustBadgeItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .trustIcon {
+    color: #A98455;
+    opacity: 0.85;
+    margin-bottom: 2px;
+  }
+
+  .trustTitle {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #7B1C2A;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .trustSub {
+    font-family: var(--serif, "Cormorant Garamond", Georgia, serif);
+    font-style: italic;
+    font-size: 11.5px;
+    color: #7A6855;
+    margin: 0;
+  }
+
+  /* 6. Copyright and Currency Row */
+  .bottomRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 16px;
+  }
+
+  .copyrightText {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10.5px;
+    color: #7A6855;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .currencySelector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #241D17;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .currencyArrow {
+    font-size: 8px;
+    color: #A98455;
+  }
+
+  /* 7. Wavy Border */
+  .wavyBottomBorder {
+    width: 100vw;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0,0 Q5,6 10,0 T20,0 V10 H0 Z' fill='%23FAF7F2' stroke='%23E8DCCB' stroke-width='0.75'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 16px 8px;
+    opacity: 0.8;
+    margin-top: 12px;
+    margin-bottom: -40px; /* offset the bottom space */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+
+  .bottomBar {
+    grid-template-columns: 100%;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .barCol {
+    align-items: center;
+    text-align: center;
+  }
+
+  .barColRight {
+    justify-content: center;
+  }
+
+  .quoteText {
+    font-size: 24px;
+  }
+
+  .brandName {
+    font-size: 36px;
+  }
+}

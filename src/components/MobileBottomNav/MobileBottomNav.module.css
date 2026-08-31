@@ -1,0 +1,119 @@
+/* ============================================================
+   SHLOKA — Mobile Fixed Bottom Navigation Styles
+   Strictly scoped to mobile screens (<= 768px)
+   ============================================================ */
+
+.navBar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FCFAF6;
+    border-top: 1px solid rgba(216, 197, 169, 0.5);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 25px rgba(23, 19, 15, 0.06);
+    z-index: 990;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 68px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 8px;
+  }
+
+  .tabBtn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+  }
+
+  .tabBtn:active {
+    transform: scale(0.94);
+  }
+
+  .iconContainer {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.22s ease;
+    background-color: transparent;
+  }
+
+  .iconContainerActive {
+    background-color: #231B15;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(35, 27, 21, 0.25);
+  }
+
+  .tabLabel {
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #7A6855;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+  }
+
+  .tabLabelActive {
+    color: #17130F;
+    font-weight: 600;
+  }
+
+  /* Badge indicator for Bag / Wishlist */
+  .badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #8A1528;
+    color: #FFFFFF;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #FCFAF6;
+    line-height: 1;
+    box-shadow: 0 2px 5px rgba(138, 21, 40, 0.3);
+  }
+
+  .badgeActive {
+    border-color: #231B15;
+  }
+}

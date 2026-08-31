@@ -1,0 +1,451 @@
+.section {
+  position: relative;
+  background-color: #FCFAF6;
+  padding-top: clamp(140px, 16vh, 220px);
+  padding-bottom: clamp(50px, 6vh, 80px);
+  padding-left: var(--page-padding, 3vw);
+  padding-right: var(--page-padding, 3vw);
+  overflow: hidden;
+  color: var(--ink, #17130F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Outer Architectural Corner Pillars ── */
+.outerPillarLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.outerPillarRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Side Botanical Lotus Illustrations ── */
+.sideBotanicalLeft {
+  position: absolute;
+  left: 1.5vw;
+  top: 55%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sideBotanicalRight {
+  position: absolute;
+  right: 1.5vw;
+  top: 55%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1560px;
+  width: 95vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+/* ── PALACE ARTWORK HEADER IMAGE ── */
+.palaceArtwork {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 0;
+  margin-bottom: clamp(6px, 1.2vh, 18px);
+}
+
+.palaceArtworkImg {
+  width: 100%;
+  max-width: clamp(420px, 52vw, 760px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.96;
+  filter: contrast(1.03) saturate(1.05);
+  display: block;
+}
+
+/* ── HEADER ── */
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(60px, 8vh, 100px);
+  width: 100%;
+}
+
+.smallLotus {
+  position: relative;
+  z-index: 2;
+  color: #A98455;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.label {
+  position: relative;
+  z-index: 2;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #A98455;
+  margin-bottom: 6px;
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(32px, 3.8vw, 68px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  line-height: 1.05;
+  color: #17130F;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.headerDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 80px;
+  margin: 10px 0 10px 0;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background-color: #D8C5A4;
+  opacity: 0.7;
+}
+
+.divDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+}
+
+.subtitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(15px, 1.3vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  color: #8C6A3D;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* ── 3 COLLECTION CARDS GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3.5vw, 52px);
+  width: 100%;
+  max-width: 1240px;
+  margin-bottom: clamp(32px, 5vh, 64px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.cardTopLotus {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── PURE RECTANGULAR IMAGE DISPLAY ── */
+.imageWrapper {
+  width: 100%;
+  height: clamp(380px, 48vh, 580px);
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── CARD FOOTER ── */
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(14px, 2vh, 22px);
+  width: 100%;
+}
+
+.cardTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: #110E0B;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+}
+
+.cardDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 60px;
+  margin-bottom: 12px;
+}
+
+.cardDivLine {
+  flex: 1;
+  height: 1px;
+  background-color: #C9B38D;
+  opacity: 0.55;
+}
+
+.cardDivDot {
+  width: 4px;
+  height: 4px;
+  background-color: #A98455;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+.viewCollectionBtnLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.viewCollectionBtnLink:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.08) drop-shadow(0 4px 12px rgba(160, 127, 58, 0.25));
+}
+
+.viewCollectionBtnImg {
+  width: auto;
+  height: clamp(68px, 8.5vh, 96px);
+  max-width: clamp(280px, 34vw, 380px);
+  object-fit: contain;
+  display: block;
+}
+
+.cardCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(160, 127, 58, 0.45), inset 0 1px 2px rgba(255, 255, 255, 1);
+  color: #000000;
+}
+
+.cardCta:hover::before {
+  left: 100%;
+}
+
+.ctaArrow {
+  font-family: monospace;
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.cardCta:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.bottomFlourish {
+  color: #A98455;
+  opacity: 0.85;
+}
+
+.mobileCarouselDots {
+  display: none;
+}
+
+.mobileTopLabel {
+  display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .section {
+    padding-top: clamp(20px, 3.5vh, 32px);
+    padding-bottom: clamp(30px, 4.5vh, 48px);
+  }
+
+  .mobileTopLabel {
+    display: block;
+    font-family: var(--sans, "Inter", sans-serif);
+    font-size: clamp(14px, 3.8vw, 17px);
+    font-weight: 600;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #A98455;
+    margin-bottom: 14px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  .palaceArtwork {
+    margin-bottom: 24px;
+  }
+
+  .label {
+    display: none !important;
+  }
+
+  .title {
+    white-space: nowrap;
+    font-size: clamp(28px, 7.8vw, 44px);
+    letter-spacing: clamp(0.24em, 3.8vw, 0.42em);
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: clamp(15px, 4.2vw, 18px);
+    font-style: italic;
+    color: #7A6855;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Horizontal Carousel on Mobile */
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(-1 * var(--page-padding, 3vw));
+    margin-right: calc(-1 * var(--page-padding, 3vw));
+    padding-left: max(6vw, 24px);
+    padding-right: max(6vw, 24px);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 clamp(280px, 78vw, 360px);
+    max-width: 82vw;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .imageWrapper {
+    height: clamp(340px, 48vh, 460px);
+  }
+
+  .mobileCarouselDots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .carouselDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D8C5A4;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .activeDot {
+    width: 24px;
+    border-radius: 4px;
+    background-color: #A98455;
+  }
+
+  .smallLotus,
+  .headerDivider {
+    display: none !important;
+  }
+
+  .outerPillarLeft,
+  .outerPillarRight,
+  .sideBotanicalLeft,
+  .sideBotanicalRight {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobileTopLabel {
+    font-size: clamp(13px, 3.6vw, 15px);
+    letter-spacing: 0.32em;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    white-space: nowrap;
+    font-size: clamp(24px, 6.8vw, 32px);
+    letter-spacing: clamp(0.2em, 3.2vw, 0.36em);
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: clamp(14px, 3.8vw, 16.5px);
+  }
+
+  .card {
+    flex: 0 0 clamp(270px, 82vw, 330px);
+    max-width: 85vw;
+  }
+
+  .imageWrapper {
+    height: clamp(320px, 46vh, 420px);
+  }
+}
