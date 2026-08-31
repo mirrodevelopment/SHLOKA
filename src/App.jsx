@@ -8,6 +8,8 @@ import TheJournal from './sections/TheJournal/TheJournal';
 import BoutiqueSection from './sections/BoutiqueSection/BoutiqueSection';
 import FooterSection from './sections/FooterSection/FooterSection';
 import LoginPage from './pages/LoginPage/LoginPage';
+import Navbar from './components/Navbar/Navbar';
+import { CollectionsPage, StoryPage, CraftPage, JournalPage, AboutPage, ContactPage } from './components/DesktopCustomPages/DesktopCustomPages';
 import CartDrawer from './components/CartDrawer/CartDrawer';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import MobileTopHeader from './components/MobileTopHeader/MobileTopHeader';
@@ -30,6 +32,7 @@ export default function App() {
   const [activeMobileTab, setActiveMobileTab] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth <= 768 : false));
+  const [activeDesktopPage, setActiveDesktopPage] = useState('home');
 
   const heroRef = useRef(null);
   const collectionRef = useRef(null);
@@ -54,10 +57,11 @@ export default function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Check URL hash for #login, #signin, #cart, or #bag
+  // Check URL hash for #login, #signin, #cart, or #bag and route desktop pages
   useEffect(() => {
     const handleHashChange = () => {
       const h = window.location.hash;
+      
       if (h === '#login' || h === '#signin' || h === '#account') {
         setIsAuthOpen(true);
       } else if (h === '#cart' || h === '#bag') {
@@ -77,6 +81,31 @@ export default function App() {
       } else if (h === '#profile') {
         if (window.innerWidth <= 768) {
           setActiveMobileTab('profile');
+        }
+      }
+
+      // Desktop page routing
+      if (window.innerWidth > 768) {
+        if (h === '#collections' || h === '#collection') {
+          setActiveDesktopPage('collections');
+          window.scrollTo(0, 0);
+        } else if (h === '#story') {
+          setActiveDesktopPage('story');
+          window.scrollTo(0, 0);
+        } else if (h === '#craft') {
+          setActiveDesktopPage('craft');
+          window.scrollTo(0, 0);
+        } else if (h === '#journal') {
+          setActiveDesktopPage('journal');
+          window.scrollTo(0, 0);
+        } else if (h === '#about') {
+          setActiveDesktopPage('about');
+          window.scrollTo(0, 0);
+        } else if (h === '#contact') {
+          setActiveDesktopPage('contact');
+          window.scrollTo(0, 0);
+        } else {
+          setActiveDesktopPage('home');
         }
       }
     };
@@ -117,6 +146,25 @@ export default function App() {
     footerRef,
   });
 
+  const renderDesktopCustomPage = () => {
+    switch (activeDesktopPage) {
+      case 'collections':
+        return <CollectionsPage />;
+      case 'story':
+        return <StoryPage />;
+      case 'craft':
+        return <CraftPage />;
+      case 'journal':
+        return <JournalPage />;
+      case 'about':
+        return <AboutPage />;
+      case 'contact':
+        return <ContactPage />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <CustomCursor />
@@ -137,44 +185,59 @@ export default function App() {
         activeMobileTab={activeMobileTab}
       />
 
-      {/* Main Website Sections (Desktop always visible, Mobile visible when Home tab is active) */}
-      <main className={activeMobileTab !== 'home' ? 'mainHiddenOnMobile' : ''}>
-        <Hero
-          ref={heroRef}
-          onOpenAuth={() => setIsAuthOpen(true)}
-          onOpenCart={() => {
-            if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-              setActiveMobileTab('bag');
-            } else {
-              setIsCartOpen(true);
-            }
-          }}
-          currentPatron={currentPatron}
-          onSelectProduct={(product) => setSelectedProduct(product)}
-          onSelectTab={(tab) => {
-            setActiveMobileTab(tab);
-            if (tab === 'home') {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-          }}
-        />
-        <TheCollection ref={collectionRef} />
-        <TheStory ref={storyRef} />
-        <TheCraft ref={craftRef} />
-        <FeaturedSarees
-          ref={featuredSareesRef}
-          onSelectProduct={(product) => {
-            if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-              setSelectedProduct(product);
-            } else {
-              setIsCartOpen(true);
-            }
-          }}
-        />
-        <TheJournal ref={journalRef} />
-        <BoutiqueSection ref={boutiqueRef} />
-        <FooterSection ref={footerRef} />
-      </main>
+      {/* Desktop Custom Separate Pages */}
+      {!isMobile && activeDesktopPage !== 'home' ? (
+        <div style={{ background: '#FFFDF9', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          <Navbar
+            onOpenAuth={() => setIsAuthOpen(true)}
+            onOpenCart={() => setIsCartOpen(true)}
+            currentPatron={currentPatron}
+          />
+          <div style={{ flex: 1 }}>
+            {renderDesktopCustomPage()}
+          </div>
+          <FooterSection ref={footerRef} />
+        </div>
+      ) : (
+        /* Main Website Sections (Desktop always visible, Mobile visible when Home tab is active) */
+        <main className={activeMobileTab !== 'home' ? 'mainHiddenOnMobile' : ''}>
+          <Hero
+            ref={heroRef}
+            onOpenAuth={() => setIsAuthOpen(true)}
+            onOpenCart={() => {
+              if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+                setActiveMobileTab('bag');
+              } else {
+                setIsCartOpen(true);
+              }
+            }}
+            currentPatron={currentPatron}
+            onSelectProduct={(product) => setSelectedProduct(product)}
+            onSelectTab={(tab) => {
+              setActiveMobileTab(tab);
+              if (tab === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          />
+          <TheCollection ref={collectionRef} />
+          <TheStory ref={storyRef} />
+          <TheCraft ref={craftRef} />
+          <FeaturedSarees
+            ref={featuredSareesRef}
+            onSelectProduct={(product) => {
+              if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+                setSelectedProduct(product);
+              } else {
+                setIsCartOpen(true);
+              }
+            }}
+          />
+          <TheJournal ref={journalRef} />
+          <BoutiqueSection ref={boutiqueRef} />
+          <FooterSection ref={footerRef} />
+        </main>
+      )}
 
       {/* Dedicated Mobile Screens (Scoped strictly to Mobile via .mobileOnlyView) */}
       {(activeMobileTab === 'search' || activeMobileTab === 'shop') && (
