@@ -312,37 +312,6 @@ export function CollectionsPage() {
 
       {/* Main Right Side Content */}
       <div className={styles.shopMainContent}>
-        {/* Search Bar */}
-        <div className={styles.searchBarWrapper}>
-          <span className={styles.searchIconLeft}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C7862" strokeWidth="1.6">
-              <circle cx="11" cy="11" r="7" />
-              <path d="m16.5 16.5 4.5 4.5" />
-            </svg>
-          </span>
-          <input
-            type="text"
-            className={styles.searchInputField}
-            placeholder="Search sarees, collections..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <div className={styles.searchIconsRight}>
-            <button type="button" className={styles.searchAuxBtn} aria-label="Visual Search">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.6">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="12" cy="12" r="3" />
-                <path d="M7 7h.01M17 7h.01" />
-              </svg>
-            </button>
-            <button type="button" className={styles.searchAuxBtn} aria-label="Voice Search">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" fill="none" />
-                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v3M8 22h8" />
-              </svg>
-            </button>
-          </div>
-        </div>
 
         {/* Shop By Category Horizontal Row */}
         <div className={styles.categoryShowcaseSection}>
