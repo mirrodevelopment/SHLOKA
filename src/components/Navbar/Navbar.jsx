@@ -98,8 +98,11 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
                     href={link.href}
                     className={styles.link}
                     id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    onClick={() => {
+                    onClick={(e) => {
                       if (window.innerWidth > 768) {
+                        e.preventDefault();
+                        window.location.hash = link.href;
+                        window.dispatchEvent(new HashChangeEvent('hashchange'));
                         window.scrollTo(0, 0);
                       }
                     }}
@@ -122,8 +125,11 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
                     href={link.href}
                     className={styles.link}
                     id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    onClick={() => {
+                    onClick={(e) => {
                       if (window.innerWidth > 768) {
+                        e.preventDefault();
+                        window.location.hash = link.href;
+                        window.dispatchEvent(new HashChangeEvent('hashchange'));
                         window.scrollTo(0, 0);
                       }
                     }}
