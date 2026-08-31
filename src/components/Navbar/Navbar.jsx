@@ -89,7 +89,18 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
             {NAV_LINKS.map((link, i) => (
               <li key={link.label} className={styles.navItem}>
                 {i > 0 && <span className={styles.dotSeparator} aria-hidden="true">•</span>}
-                <a href={link.href} className={styles.link} id={`nav-${link.label.toLowerCase()}`}>
+                <a
+                  href={link.href}
+                  className={styles.link}
+                  id={`nav-${link.label.toLowerCase()}`}
+                  onClick={(e) => {
+                    if (window.innerWidth > 768) {
+                      e.preventDefault();
+                      history.pushState(null, null, link.href);
+                      window.dispatchEvent(new HashChangeEvent('hashchange'));
+                    }
+                  }}
+                >
                   {link.label}
                 </a>
               </li>
@@ -103,6 +114,13 @@ export default function Navbar({ onOpenAuth, onOpenCart, currentPatron }) {
             id="nav-logo"
             data-hero-logo
             aria-label="SHLOKA Home"
+            onClick={(e) => {
+              if (window.innerWidth > 768) {
+                e.preventDefault();
+                history.pushState(null, null, ' '); // clear hash
+                window.dispatchEvent(new HashChangeEvent('hashchange'));
+              }
+            }}
           >
             <img src={shlokaLogoTypo} alt="SHLOKA" className={styles.typoLogo} />
           </a>

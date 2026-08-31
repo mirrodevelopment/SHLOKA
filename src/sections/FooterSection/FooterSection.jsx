@@ -106,17 +106,83 @@ const FooterSection = forwardRef(function FooterSection(props, ref) {
 
           {/* Horizontal Navigation Links Bar */}
           <nav className={styles.navBar} aria-label="Footer Navigation" data-ftr-text>
-            <a href="#collections">COLLECTIONS</a>
+            <a
+              href="#collections"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#collections');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              COLLECTIONS
+            </a>
             <span className={styles.dot}>•</span>
-            <a href="#story">STORY</a>
+            <a
+              href="#story"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#story');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              STORY
+            </a>
             <span className={styles.dot}>•</span>
-            <a href="#craft">CRAFT</a>
+            <a
+              href="#craft"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#craft');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              CRAFT
+            </a>
             <span className={styles.dot}>•</span>
-            <a href="#journal">JOURNAL</a>
+            <a
+              href="#journal"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#journal');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              JOURNAL
+            </a>
             <span className={styles.dot}>•</span>
-            <a href="#about">ABOUT</a>
+            <a
+              href="#about"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#about');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              ABOUT
+            </a>
             <span className={styles.dot}>•</span>
-            <a href="#contact">CONTACT</a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                if (window.innerWidth > 768) {
+                  e.preventDefault();
+                  history.pushState(null, null, '#contact');
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                }
+              }}
+            >
+              CONTACT
+            </a>
           </nav>
 
           {/* Brand Signature Block */}
