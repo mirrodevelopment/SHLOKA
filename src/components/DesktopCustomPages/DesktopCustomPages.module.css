@@ -519,161 +519,444 @@
   margin: 0;
 }
 
-/* ── CONTACT LAYOUT ── */
-.contactLayout {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 60px;
-  max-width: 950px;
-  margin: 0 auto;
+/* ── REDESIGNED CONTACT ATELIER LAYOUT ── */
+.contactPageWrapper {
+  min-height: 100vh;
+  background-color: #FFFDF9;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-top: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-@media (max-width: 900px) {
-  .contactLayout {
+.contactHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 34px;
+  padding: 0 24px;
+}
+
+.contactEyebrow {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #8C7862;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.contactMainTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #5B1420;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.contactTitleDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.contactTitleDivider .dividerLine {
+  width: 64px;
+  height: 1px;
+  background: rgba(184, 137, 62, 0.35);
+}
+
+.contactTitleDivider .diamondMotif {
+  font-size: 8px;
+  color: #A98455;
+  line-height: 1;
+}
+
+.contactSubtitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-style: italic;
+  font-size: 15px;
+  color: #7A6855;
+  margin: 0;
+}
+
+/* Main Grid */
+.contactMainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
+  max-width: 1240px;
+  margin: 0 auto 60px auto;
+  padding: 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+@media (max-width: 990px) {
+  .contactMainGrid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 }
 
-.contactFormCol {
-  display: flex;
-  flex-direction: column;
+/* Form Card with Chamfered Frame */
+.contactFormCard {
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid rgba(184, 137, 62, 0.25);
+  border-radius: 12px;
+  padding: 28px 28px 32px 28px;
+  box-shadow: 0 10px 30px rgba(74, 14, 23, 0.03);
+  backdrop-filter: blur(8px);
+  position: relative;
 }
 
-.contactColHeading {
-  font-family: var(--sans, "Inter", sans-serif);
-  font-size: 10px;
+.formCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.penIcon {
+  color: #A98455;
+}
+
+.formCardTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #8C7862;
-  margin: 0 0 24px 0;
+  letter-spacing: 0.12em;
+  color: #5B1420;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.contactForm {
+.formCardDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.dividerLineShort {
+  width: 32px;
+  height: 1px;
+  background: rgba(184, 137, 62, 0.3);
+}
+
+.diamondMotifSmall {
+  font-size: 6px;
+  color: #A98455;
+}
+
+.atelierForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
-.formGroup {
+.formFieldGroup {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.formLabel {
+.formRowTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.fieldLabel {
   font-family: var(--sans, "Inter", sans-serif);
   font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #8C7862;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #3A2E26;
+  text-transform: uppercase;
 }
 
-.formInput,
-.formTextarea {
+.fieldInput,
+.fieldTextarea {
   font-family: var(--sans, "Inter", sans-serif);
-  font-size: 13px;
-  padding: 12px 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(41, 35, 31, 0.2);
+  font-size: 12px;
   color: #29231F;
+  background: #FFFDF9;
+  border: 1px solid rgba(184, 137, 62, 0.25);
+  border-radius: 4px;
+  padding: 10px 12px;
   outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.formInput:focus,
-.formTextarea:focus {
-  border-bottom-color: #8B2635;
-}
-
-.submitBtn {
-  font-family: var(--sans, "Inter", sans-serif);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #FFFFFF;
-  background: #8B2635;
-  border: none;
-  padding: 16px 28px;
-  cursor: pointer;
-  width: fit-content;
-  transition: background 0.3s ease;
-  margin-top: 10px;
-}
-
-.submitBtn:hover {
-  background: #6e1c28;
-}
-
-.successMessage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  border: 1px solid rgba(184, 137, 62, 0.15);
-  border-radius: 12px;
-  background: #FCFAF5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
   box-sizing: border-box;
 }
 
-.successMotif {
-  color: #A98455;
-  font-size: 20px;
-  margin-bottom: 12px;
+.fieldInput::placeholder,
+.fieldTextarea::placeholder {
+  color: #A39382;
+  opacity: 0.75;
+  font-size: 11px;
 }
 
-.successMessage p {
-  font-family: var(--serif, "Cormorant Garamond", serif);
-  font-size: 16px;
-  color: #5C4A38;
-  margin: 0;
+.fieldInput:focus,
+.fieldTextarea:focus {
+  border-color: #5B1420;
+  box-shadow: 0 0 0 2px rgba(91, 20, 32, 0.08);
 }
 
-.contactDetailsCol {
-  display: flex;
-  flex-direction: column;
+.fieldTextarea {
+  resize: vertical;
+  min-height: 84px;
 }
 
-.boutiqueList {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.boutiqueItem {
-  border-bottom: 1px solid rgba(184, 137, 62, 0.12);
-  padding-bottom: 24px;
-}
-
-.boutiqueItem:last-child {
+.submitInquiryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #5B1420;
+  color: #FFFDF9;
   border: none;
-}
-
-.boutiqueName {
-  font-family: var(--serif, "Cormorant Garamond", serif);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #29231F;
-  margin: 0 0 10px 0;
-}
-
-.boutiqueAddress {
-  font-family: var(--serif, "Cormorant Garamond", serif);
-  font-size: 15px;
-  color: #5C4A38;
-  line-height: 1.5;
-  margin: 0 0 8px 0;
-}
-
-.boutiqueContact {
+  border-radius: 4px;
+  padding: 11px 24px;
   font-family: var(--sans, "Inter", sans-serif);
   font-size: 10px;
-  color: #8C7862;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.submitInquiryBtn:hover {
+  background: #7A1A2A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(91, 20, 32, 0.2);
+}
+
+.btnLotus {
+  display: inline-block;
+}
+
+/* Right Column: Boutiques */
+.contactBoutiquesCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boutiquesHeaderBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.boutiquesHeading {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #5B1420;
+  margin: 4px 0;
+  text-transform: uppercase;
+}
+
+.boutiqueCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.boutiqueStoreCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255, 253, 249, 0.75);
+  border: 1px solid rgba(184, 137, 62, 0.16);
+  border-radius: 8px;
+  padding: 14px 18px;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.boutiqueStoreCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 137, 62, 0.35);
+  background: rgba(255, 253, 249, 0.95);
+}
+
+.storeCircleBadge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #FAF5ED;
+  border: 1px solid rgba(184, 137, 62, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.storeFacadeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.storeInfoCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.storeCityTitle {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #29231F;
   margin: 0;
+  text-transform: uppercase;
+}
+
+.storeAddressText {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 11px;
+  color: #6E5D4F;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.storeContactMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 11px;
+  flex-wrap: wrap;
+}
+
+.storeMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #29231F;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.storeMetaItem:hover {
+  color: #8B2635;
+}
+
+.metaSeparator {
+  color: #A98455;
+  opacity: 0.5;
+  font-size: 11px;
+}
+
+/* 3-Col Assistance Features Bar */
+.boutiqueFeaturesPill {
+  background: rgba(255, 253, 249, 0.9);
+  border: 1px solid rgba(184, 137, 62, 0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.featureItemBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.featureIconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FAF5ED;
+  border: 1px solid rgba(184, 137, 62, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.featureTitle {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #29231F;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.featureDesc {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 9.5px;
+  color: #7A6855;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Bottom Banner */
+.contactBottomBanner {
+  background: #4A0E17;
+  padding: 20px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.bottomBannerTagline {
+  font-family: var(--serif, "Cormorant Garamond", serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  color: #E6D5BE;
+  text-transform: uppercase;
+}
+
+.bottomLotusWrap {
+  display: flex;
+  justify-content: center;
 }
 
 /* ── NEW ARRIVALS GRID ── */
@@ -858,13 +1141,12 @@
 
 .arrivalBannerCard {
   display: flex;
-  background: linear-gradient(135deg, rgba(139, 38, 53, 0.05) 0%, rgba(184, 137, 62, 0.09) 100%), #FFFDF9;
-  border: 1px solid rgba(184, 137, 62, 0.20);
-  border-radius: 6px;
+  background: #FFFDF9;
+  border: 1px solid rgba(184, 137, 62, 0.08);
+  border-radius: 4px;
   overflow: hidden;
   align-items: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  box-shadow: 0 6px 25px rgba(184, 137, 62, 0.06);
 }
 
 .arrivalBannerCard:hover {

@@ -27,6 +27,9 @@ import cat9Img from '../../assets/Category-9.png';
 import cat10Img from '../../assets/Category-10.png';
 import cat11Img from '../../assets/Category-11.png';
 import cat12Img from '../../assets/Category-12.png';
+import contactPageBg from '../../assets/Contact page Bg image.png';
+import store1Img from '../../assets/store1.png';
+import store2Img from '../../assets/store2.png';
 import { isInWishlist, toggleWishlist } from '../../utils/wishlist';
 
 export function CollectionsPage() {
@@ -620,94 +623,237 @@ export function AboutPage() {
 }
 
 export function ContactPage() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    setFormState({ name: '', email: '', message: '' });
+    setFormState({ name: '', email: '', phone: '', message: '' });
     setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <div className={styles.pageContainer}>
-      <header className={styles.header}>
-        <BloomingLotusIcon width={24} height={16} stroke="#A98455" />
-        <span className={styles.eyebrow}>GET IN TOUCH</span>
-        <h1 className={styles.mainTitle}>CONTACT THE ATELIER</h1>
-        <p className={styles.subtitle}>Visit our boutiques or request a private couture appointment.</p>
+    <div className={styles.contactPageWrapper} style={{ backgroundImage: `url("${contactPageBg}")` }}>
+      {/* Centered Header */}
+      <header className={styles.contactHeader}>
+        <BloomingLotusIcon width={28} height={18} stroke="#A98455" />
+        <span className={styles.contactEyebrow}>GET IN TOUCH</span>
+        <h1 className={styles.contactMainTitle}>CONTACT THE ATELIER</h1>
+        <div className={styles.contactTitleDivider}>
+          <span className={styles.dividerLine} />
+          <span className={styles.diamondMotif}>◆</span>
+          <span className={styles.dividerLine} />
+        </div>
+        <p className={styles.contactSubtitle}>Visit our boutiques or request a private couture appointment.</p>
       </header>
 
-      <div className={styles.contactLayout}>
-        <div className={styles.contactFormCol}>
-          <h3 className={styles.contactColHeading}>SEND A MESSAGE</h3>
+      {/* Main 2-Column Content Grid */}
+      <div className={styles.contactMainGrid}>
+        {/* Left Column: Form Card with Chamfered Frame */}
+        <div className={styles.contactFormCard}>
+          <div className={styles.formCardHeader}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8" className={styles.penIcon}>
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+            <h3 className={styles.formCardTitle}>SEND A MESSAGE</h3>
+          </div>
+          <div className={styles.formCardDivider}>
+            <span className={styles.dividerLineShort} />
+            <span className={styles.diamondMotifSmall}>◆</span>
+            <span className={styles.dividerLineShort} />
+          </div>
+
           {submitted ? (
             <div className={styles.successMessage}>
-              <span className={styles.successMotif}>✦</span>
-              <p>Thank you. Our atelier representatives will contact you shortly.</p>
+              <BloomingLotusIcon width={24} height={16} stroke="#8B2635" />
+              <p>Thank you for reaching out. Our atelier team will contact you shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>NAME</label>
+            <form onSubmit={handleSubmit} className={styles.atelierForm}>
+              <div className={styles.formFieldGroup}>
+                <label className={styles.fieldLabel}>NAME</label>
                 <input
                   type="text"
                   required
-                  className={styles.formInput}
+                  placeholder="Your name"
+                  className={styles.fieldInput}
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                 />
               </div>
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>EMAIL ADDRESS</label>
-                <input
-                  type="email"
-                  required
-                  className={styles.formInput}
-                  value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                />
+
+              <div className={styles.formRowTwo}>
+                <div className={styles.formFieldGroup}>
+                  <label className={styles.fieldLabel}>EMAIL ADDRESS</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="your.email@example.com"
+                    className={styles.fieldInput}
+                    value={formState.email}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  />
+                </div>
+                <div className={styles.formFieldGroup}>
+                  <label className={styles.fieldLabel}>PHONE NUMBER</label>
+                  <input
+                    type="tel"
+                    placeholder="+91 00000 00000"
+                    className={styles.fieldInput}
+                    value={formState.phone}
+                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                  />
+                </div>
               </div>
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>MESSAGE</label>
+
+              <div className={styles.formFieldGroup}>
+                <label className={styles.fieldLabel}>MESSAGE</label>
                 <textarea
                   rows="4"
                   required
-                  className={styles.formTextarea}
+                  placeholder="Tell us how we can help you..."
+                  className={styles.fieldTextarea}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 />
               </div>
-              <button type="submit" className={styles.submitBtn}>
-                SUBMIT INQUIRY
+
+              <button type="submit" className={styles.submitInquiryBtn}>
+                <BloomingLotusIcon width={16} height={12} stroke="#E6D5BE" className={styles.btnLotus} />
+                <span>SUBMIT INQUIRY</span>
               </button>
             </form>
           )}
         </div>
 
-        <div className={styles.contactDetailsCol}>
-          <h3 className={styles.contactColHeading}>OUR BOUTIQUES</h3>
-          <div className={styles.boutiqueList}>
-            <div className={styles.boutiqueItem}>
-              <h4 className={styles.boutiqueName}>COIMBATORE FLAGSHIP</h4>
-              <p className={styles.boutiqueAddress}>
-                The Heritage House, 82 Race Course Road,<br />
-                Coimbatore, Tamil Nadu — 641018
-              </p>
-              <p className={styles.boutiqueContact}>atelier.cbe@shloka.com • +91 422 4567089</p>
+        {/* Right Column: Boutiques & Features */}
+        <div className={styles.contactBoutiquesCol}>
+          <div className={styles.boutiquesHeaderBlock}>
+            <BloomingLotusIcon width={22} height={14} stroke="#A98455" />
+            <h3 className={styles.boutiquesHeading}>OUR BOUTIQUES</h3>
+            <div className={styles.formCardDivider}>
+              <span className={styles.dividerLineShort} />
+              <span className={styles.diamondMotifSmall}>◆</span>
+              <span className={styles.dividerLineShort} />
             </div>
-            <div className={styles.boutiqueItem}>
-              <h4 className={styles.boutiqueName}>CHENNAI ATELIER</h4>
-              <p className={styles.boutiqueAddress}>
-                Khader Nawaz Khan Road, Nungambakkam,<br />
-                Chennai, Tamil Nadu — 600006
-              </p>
-              <p className={styles.boutiqueContact}>atelier.mds@shloka.com • +91 44 28334091</p>
+          </div>
+
+          <div className={styles.boutiqueCardsList}>
+            {/* Coimbatore Flagship */}
+            <div className={styles.boutiqueStoreCard}>
+              <div className={styles.storeCircleBadge}>
+                <img src={store1Img} alt="Coimbatore Flagship" className={styles.storeFacadeImg} />
+              </div>
+              <div className={styles.storeInfoCol}>
+                <h4 className={styles.storeCityTitle}>COIMBATORE FLAGSHIP</h4>
+                <p className={styles.storeAddressText}>
+                  The Heritage House, 82 Race Course Road,<br />
+                  Coimbatore, Tamil Nadu — 641018
+                </p>
+                <div className={styles.storeContactMetaRow}>
+                  <a href="mailto:atelier.cbe@shloka.com" className={styles.storeMetaItem}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <span>atelier.cbe@shloka.com</span>
+                  </a>
+                  <span className={styles.metaSeparator}>|</span>
+                  <a href="tel:+914224567089" className={styles.storeMetaItem}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91 422 4567089</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Chennai Atelier */}
+            <div className={styles.boutiqueStoreCard}>
+              <div className={styles.storeCircleBadge}>
+                <img src={store2Img} alt="Chennai Atelier" className={styles.storeFacadeImg} />
+              </div>
+              <div className={styles.storeInfoCol}>
+                <h4 className={styles.storeCityTitle}>CHENNAI ATELIER</h4>
+                <p className={styles.storeAddressText}>
+                  Khader Nawaz Khan Road, Nungambakkam,<br />
+                  Chennai, Tamil Nadu — 600006
+                </p>
+                <div className={styles.storeContactMetaRow}>
+                  <a href="mailto:atelier.mds@shloka.com" className={styles.storeMetaItem}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <span>atelier.mds@shloka.com</span>
+                  </a>
+                  <span className={styles.metaSeparator}>|</span>
+                  <a href="tel:+914428334091" className={styles.storeMetaItem}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91 44 28334091</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3-Col Assistance Features Bar */}
+          <div className={styles.boutiqueFeaturesPill}>
+            <div className={styles.featureItemBlock}>
+              <div className={styles.featureIconCircle}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                  <rect width="18" height="18" x="3" y="4" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                  <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" />
+                </svg>
+              </div>
+              <div className={styles.featureTextCol}>
+                <h5 className={styles.featureTitle}>PRIVATE APPOINTMENTS</h5>
+                <p className={styles.featureDesc}>Book a one-on-one styling session</p>
+              </div>
+            </div>
+
+            <div className={styles.featureItemBlock}>
+              <div className={styles.featureIconCircle}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                  <path d="M21 8v13H3V8" />
+                  <path d="M1 3h22v5H1z" />
+                  <path d="M10 12h4" />
+                </svg>
+              </div>
+              <div className={styles.featureTextCol}>
+                <h5 className={styles.featureTitle}>EXCLUSIVE COLLECTIONS</h5>
+                <p className={styles.featureDesc}>Explore our heritage weaves & couture</p>
+              </div>
+            </div>
+
+            <div className={styles.featureItemBlock}>
+              <div className={styles.featureIconCircle}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div className={styles.featureTextCol}>
+                <h5 className={styles.featureTitle}>PERSONAL ASSISTANCE</h5>
+                <p className={styles.featureDesc}>Our team is here to assist you</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Bottom Timeless Weaves Banner */}
+      <footer className={styles.contactBottomBanner}>
+        <span className={styles.bottomBannerTagline}>TIMELESS WEAVES, ETERNAL BEAUTY.</span>
+        <div className={styles.bottomLotusWrap}>
+          <BloomingLotusIcon width={22} height={14} stroke="#D4AF37" />
+        </div>
+      </footer>
     </div>
   );
 }
@@ -721,8 +867,6 @@ export function NewArrivalsPage() {
       desc: 'Our signature launch featuring heavy-weight mulberry silk sarees with contrasting pure gold zari borders, handwoven in the historic temple towns of Tamil Nadu.',
       image: saree1Img,
       accent: 'Royal Crimson Red & Antique Gold',
-      bgGradient: 'linear-gradient(135deg, rgba(139, 38, 53, 0.06) 0%, rgba(184, 137, 62, 0.11) 100%), #FFFDF9',
-      borderColor: 'rgba(184, 137, 62, 0.22)',
       link: '#search'
     },
     {
@@ -732,8 +876,6 @@ export function NewArrivalsPage() {
       desc: 'Intricate floral and foliate motifs hand-loomed with gold and silver zari in classic double-warp Varanasi silks, curated for bridal celebrations.',
       image: saree2Img,
       accent: 'Sage Green & Champagne Zari',
-      bgGradient: 'linear-gradient(135deg, rgba(82, 108, 90, 0.06) 0%, rgba(184, 137, 62, 0.10) 100%), #FFFDF9',
-      borderColor: 'rgba(82, 108, 90, 0.22)',
       link: '#search'
     },
     {
@@ -743,8 +885,6 @@ export function NewArrivalsPage() {
       desc: 'Translucent, weightless organzas finished with hand-embroidered border details and delicate pure silver zari trims for modern festive statements.',
       image: saree4Img,
       accent: 'Misty Cloud Blue & Silver Zari',
-      bgGradient: 'linear-gradient(135deg, rgba(95, 125, 148, 0.07) 0%, rgba(175, 185, 195, 0.11) 100%), #FFFDF9',
-      borderColor: 'rgba(95, 125, 148, 0.22)',
       link: '#search'
     }
   ];
@@ -760,11 +900,7 @@ export function NewArrivalsPage() {
 
       <div className={styles.arrivalsBannersList}>
         {newCollections.map((col) => (
-          <div
-            key={col.chapter}
-            className={styles.arrivalBannerCard}
-            style={{ background: col.bgGradient, borderColor: col.borderColor }}
-          >
+          <div key={col.chapter} className={styles.arrivalBannerCard}>
             <div className={styles.bannerImageFrame}>
               <img src={col.image} alt={col.title} className={styles.bannerImg} />
               <span className={styles.bannerBadge}>NEW LAUNCH</span>
