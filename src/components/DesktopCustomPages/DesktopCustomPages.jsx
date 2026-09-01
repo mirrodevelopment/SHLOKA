@@ -39,15 +39,6 @@ export function CollectionsPage() {
   const [sortBy, setSortBy] = useState('Featured');
   const [wishlistTick, setWishlistTick] = useState(0);
 
-  const categoryScrollRef = useRef(null);
-
-  const handleScrollRight = () => {
-    if (categoryScrollRef.current) {
-      const container = categoryScrollRef.current;
-      container.scrollBy({ left: 240, behavior: 'smooth' });
-    }
-  };
-
   // Sync wishlist updates
   useEffect(() => {
     const syncWishlist = () => setWishlistTick((t) => t + 1);
@@ -261,7 +252,7 @@ export function CollectionsPage() {
           <span className={styles.dividerLine} />
         </div>
         <div className={styles.categoryCircleRowWrapper}>
-          <div ref={categoryScrollRef} className={styles.categoryCircleScroll}>
+          <div className={styles.categoryCircleScroll}>
             {categories.map((cat) => (
               <button
                 key={cat.name}
@@ -276,14 +267,6 @@ export function CollectionsPage() {
               </button>
             ))}
           </div>
-          <button
-            type="button"
-            className={styles.circleArrowBtn}
-            onClick={handleScrollRight}
-            aria-label="Next categories"
-          >
-            <span>➔</span>
-          </button>
         </div>
       </div>
 

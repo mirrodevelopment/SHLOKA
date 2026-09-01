@@ -1321,10 +1321,13 @@
 /* Shop By Category Showcase */
 .categoryShowcaseSection {
   max-width: 1440px;
-  margin: 0 auto 40px auto;
-  padding: 0 32px;
+  margin: 0 auto 36px auto;
+  padding: 0 24px;
   box-sizing: border-box;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .categorySectionTitle {
@@ -1352,18 +1355,20 @@
 }
 
 .categoryCircleRowWrapper {
-  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .categoryCircleScroll {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(8px, 1.4vw, 20px);
   overflow-x: auto;
   scrollbar-width: none;
-  padding-bottom: 8px;
-  scroll-behavior: smooth;
+  padding: 4px 10px 10px 10px;
   width: 100%;
 }
 
@@ -1372,7 +1377,7 @@
 }
 
 .categoryCircleCard {
-  flex: 0 0 84px;
+  flex: 0 0 clamp(68px, 5.8vw, 84px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1380,16 +1385,16 @@
   border: none;
   cursor: pointer;
   outline: none;
-  gap: 10px;
+  gap: 8px;
 }
 
 .circleFrame {
-  width: 66px;
-  height: 66px;
+  width: clamp(54px, 4.6vw, 66px);
+  height: clamp(54px, 4.6vw, 66px);
   border-radius: 50%;
   background: #FFFDF9;
   border: 1px solid rgba(184, 137, 62, 0.18);
-  padding: 4px;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1425,29 +1430,6 @@
 .categoryCircleCard:hover .circleLabel,
 .categoryCircleActive .circleLabel {
   color: #8B2635;
-}
-
-.circleArrowBtn {
-  position: absolute;
-  right: -15px;
-  z-index: 10;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #FFFDF9;
-  border: 1px solid rgba(184, 137, 62, 0.22);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-.circleArrowBtn:hover {
-  border-color: #8B2635;
-  background: #8B2635;
-  color: #FFFDF9;
 }
 
 /* Category Header Details */
