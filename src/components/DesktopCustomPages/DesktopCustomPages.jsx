@@ -770,36 +770,6 @@ export function ContactPage() {
                 </div>
               </div>
             </div>
-
-            {/* Chennai Atelier */}
-            <div className={styles.boutiqueStoreCard}>
-              <div className={styles.storeCircleBadge}>
-                <img src={store2Img} alt="Chennai Atelier" className={styles.storeFacadeImg} />
-              </div>
-              <div className={styles.storeInfoCol}>
-                <h4 className={styles.storeCityTitle}>CHENNAI ATELIER</h4>
-                <p className={styles.storeAddressText}>
-                  Khader Nawaz Khan Road, Nungambakkam,<br />
-                  Chennai, Tamil Nadu — 600006
-                </p>
-                <div className={styles.storeContactMetaRow}>
-                  <a href="mailto:atelier.mds@shloka.com" className={styles.storeMetaItem}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
-                      <rect width="20" height="16" x="2" y="4" rx="2" />
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
-                    <span>atelier.mds@shloka.com</span>
-                  </a>
-                  <span className={styles.metaSeparator}>|</span>
-                  <a href="tel:+914428334091" className={styles.storeMetaItem}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A98455" strokeWidth="1.8">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                    <span>+91 44 28334091</span>
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* 3-Col Assistance Features Bar */}
