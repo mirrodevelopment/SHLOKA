@@ -721,6 +721,8 @@ export function NewArrivalsPage() {
       desc: 'Our signature launch featuring heavy-weight mulberry silk sarees with contrasting pure gold zari borders, handwoven in the historic temple towns of Tamil Nadu.',
       image: saree1Img,
       accent: 'Royal Crimson Red & Antique Gold',
+      bgGradient: 'linear-gradient(135deg, rgba(139, 38, 53, 0.06) 0%, rgba(184, 137, 62, 0.11) 100%), #FFFDF9',
+      borderColor: 'rgba(184, 137, 62, 0.22)',
       link: '#search'
     },
     {
@@ -730,6 +732,8 @@ export function NewArrivalsPage() {
       desc: 'Intricate floral and foliate motifs hand-loomed with gold and silver zari in classic double-warp Varanasi silks, curated for bridal celebrations.',
       image: saree2Img,
       accent: 'Sage Green & Champagne Zari',
+      bgGradient: 'linear-gradient(135deg, rgba(82, 108, 90, 0.06) 0%, rgba(184, 137, 62, 0.10) 100%), #FFFDF9',
+      borderColor: 'rgba(82, 108, 90, 0.22)',
       link: '#search'
     },
     {
@@ -739,6 +743,8 @@ export function NewArrivalsPage() {
       desc: 'Translucent, weightless organzas finished with hand-embroidered border details and delicate pure silver zari trims for modern festive statements.',
       image: saree4Img,
       accent: 'Misty Cloud Blue & Silver Zari',
+      bgGradient: 'linear-gradient(135deg, rgba(95, 125, 148, 0.07) 0%, rgba(175, 185, 195, 0.11) 100%), #FFFDF9',
+      borderColor: 'rgba(95, 125, 148, 0.22)',
       link: '#search'
     }
   ];
@@ -754,7 +760,11 @@ export function NewArrivalsPage() {
 
       <div className={styles.arrivalsBannersList}>
         {newCollections.map((col) => (
-          <div key={col.chapter} className={styles.arrivalBannerCard}>
+          <div
+            key={col.chapter}
+            className={styles.arrivalBannerCard}
+            style={{ background: col.bgGradient, borderColor: col.borderColor }}
+          >
             <div className={styles.bannerImageFrame}>
               <img src={col.image} alt={col.title} className={styles.bannerImg} />
               <span className={styles.bannerBadge}>NEW LAUNCH</span>
