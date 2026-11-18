@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -34,16 +34,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build SHLOKA
+      - name: Build Vite application
         run: npm run build
 
-      - name: Setup GitHub Pages
+      - name: Verify production output
+        run: |
+          test -f dist/index.html
+          find dist -maxdepth 2 -type f
+
+      - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload production build
+      - name: Upload production files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
 
   deploy:
     needs: build
@@ -54,6 +59,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
